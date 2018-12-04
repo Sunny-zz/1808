@@ -1,0 +1,19 @@
+终端里面执行：python -m SimpleHTTPServer 8000
+然后记下局域网的IP，然后在别的电脑
+上打开浏览器，输入IP:8000，例如192.168.1.109:8000
+在哪个目录执行的就会分享出哪个目录
+
+http://192.168.0.104:8000/
+
+
+
+将node添加到linux的环境变量
+1.使用 which node
+/home/zzt/.nvm/versions/node/v9.2.0/bin
+2.打开.bashrc
+添加 export PATH="$PATH:/home/zzt/.nvm/versions/node/v9.2.0/bin" 到最后一行保存 
+重启命令行 
+
+
+JSON.stringify
+JSON.parse

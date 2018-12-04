@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ECMAJAVASCRIPT   es3  es5       es6|es2015|新js     typescript
+      // es6
+      // 变量
+      // 变量声明方式  const(声明常量的时候使用)   let
+      // 使用 const 声明的变量不可修改
+      // const 和 let 声明变量时把大括号当做作用域，不能重复声明，没有声明提升
+      // const pi = 3.1415926
+      // let a = 10
+      // console.log(a)
+      //
+      // if (true) {
+      //   const a = 10
+      // }
+      // console.log(a)
+      // for (let i = 0; i < 10; i++) {
+      //   console.log(i)
+      // }
+      // function f1() {
+      //   let n = 0
+      //   if (true) {
+      //     n = 10
+      //   }
+      //   console.log(n)
+      // }
+      // f1()
+      // const a = 10
+      // console.log(a)
+
+      // 解构赋值
+      // 数组的解构赋值
+      // const arr = [1, 2, 3]
+      // const [num1, num2, num3] = arr
+      // console.log(num1, num2, num3)
+      // 字符串的解构赋值
+      // const str = 'hello'
+      // const first = str.charAt(0)
+      // console.log(first)
+      // const [first, second] = str
+      // console.log(first, second)
+      // 对象的解构赋值
+      // const userInfo = {
+      //   username: 'erha',
+      //   userage: 2,
+      //   color: 'grey'
+      // }
+      // 变量名要和对象的属性名相同 顺序无所谓
+      // const { userage, username } = userInfo
+      // console.log(username, userage)
+      // 对象解构赋值的另一个用法   函数参数的解构赋值
+      // function fun({username}) {
+      //   console.log(username)
+      // }
+      // fun(userInfo)
+
+      // 箭头函数
+      // function add(a, b) {
+      //   const res = a + b
+      //   return res
+      // }
+      // 写法    (参数) => {语句}
+      // const add = (a, b) => {
+      //   const res = a + b
+      //   return res
+      // }
+      // const result = add(1, 2)
+      // console.log(result)
+      // 当参数为一个的时候可以省略小括号  当函数内部只有返回值的时候 可以省略大括号和return 举个例子   箭头函数没有大括号箭头后面就是返回值
+      // const fun = a => 10
+      // const b = fun(100)
+      // console.log(b)
+      // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+      // const newArr = arr.filter(ele => ele > 5)
+      // console.log(newArr)
+      // 普通函数内的 this 指向，调用函数的时候去找
+      // 箭头函数内的 this 指向，声明函数的时候就定义好了
+      // 对象下的方法要写成普通函数形式
+      // const obj = {
+      //   username: 'zzz',
+      //   sayName: () => {
+      //     console.log(this.username)
+      //   }
+      // }
+      // obj.sayName()
+
+      // es6 对象的简写方式
+      // const obj = {
+      //   username: 'zzz',
+      //   sayName() {
+      //     console.log(this.username)
+      //   }
+      // }
+      // obj.sayName()
+
+      // const username = 'zzt'
+      // const userage = 18
+      // 如果变量名和属性名相同对象可以简写成以下方式
+      // const obj = {
+      //   username,
+      //   userage
+      // }
+      // console.log(obj)
+
+      // 字符串模板
+      // const username = 'zzt'
+      // console.log(`my name is ${username}`)
+
+      // 函数参数的默认值
+      // function highLight(color = 'red') {
+      //   alert(color)
+      // }
+      // highLight('#ccc')
+
+      // 函数的剩余参数  rest
+      // function restFunc(a, ...rest) {
+      //   console.log(a)
+      //   console.log(rest)
+      // }
+      // restFunc(1)
+      // restFunc(1, 2, 3, 4)
+
+      // 扩展运算符(es7 8)   ...可以应用在数组和对象上
+      // const arr1 = [1, 2, 3]
+      // const arr2 = [4, 5, 6]
+      // const newArr = arr1.concat(arr2)
+      // const newArr = [...arr1, ...arr2]
+      // console.log(newArr)
+      // 合并对象
+      // const obj1 = {
+      //   username: 'zzt'
+      // }
+      // const obj2 = {
+      //   userage: 10,
+      //   username: 'zzt1'
+      // }
+      // const newObj = Object.assign({},obj1, obj2)
+      // const newObj = { ...obj1, ...obj2 }
+      // console.log(newObj)
+
+      // 数组和对象的拷贝    不变性
+      // const arr = [1, 2, 3]
+      // // const arr1 = [...arr]
+      // const arr1 = arr.slice(0)
+      // arr1.push(4)
+      // console.log(arr)
+      // console.log(arr1)
+
+      // class  模块
+    </script>
+  </body>
+</html>
