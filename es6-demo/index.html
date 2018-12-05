@@ -166,6 +166,76 @@
       // 函数参数的默认值
       // 函数的剩余参数 rest
       // 扩展运算符 合并或拷贝对象
+
+      // class
+      // function CreateCat(catName, catAge) {
+      //   this.catName = catName
+      //   this.catAge = catAge
+      // }
+      // CreateCat.prototype.sing = function() {
+      //   console.log('miaomiaomiao')
+      // }
+      // const xiaoHua = new CreateCat('xiaohua', 2)
+      // console.log(xiaoHua)
+
+      // class CreateCat {
+      //   // constructor 相当于之前的构造函数这里面叫做构造器
+      //   // es6 class 内只能定义方法而且方法之间不能加逗号
+      //   // 使用 new+ class名 创建实例化类 调用类的时候传递的参数会给到 constructor 方法
+      //   // 并且 constructor 方法在 new 的时候会默认执行
+      //   // 除了 constructor 方法之外的方法相当于 类 的公有方法，就相当于之前原型内的方法
+      //   constructor(catName, catAge) {
+      //     this.catName = catName
+      //     this.catAge = catAge
+      //   }
+      //   sing() {
+      //     console.log('miaomiaomiao')
+      //   }
+      // }
+      // const xiaoHua = new CreateCat('xiaoHua', 2)
+      // console.log(xiaoHua)
+      // console.log(CreateCat.prototype)
+      // 类 模块内自动都是严格模式
+
+      // class继承
+      // function Animal(name) {
+      //   this.name = name
+      // }
+      // Animal.prototype.sayName = function() {
+      //   console.log(this.name)
+      // }
+      // const cat = new Animal('猫')
+      // console.log(cat)
+      // // 我的 Cat 构造函数要继承  cat 的所有的属性和方法
+      // function Cat() {}
+      // // 原型链
+      // Cat.prototype = cat
+      // const xiaoHei = new Cat()
+      // console.log(xiaoHei)
+
+      class Animal {
+        constructor(name) {
+          this.name = name
+        }
+        sayName() {
+          console.log(this.name)
+        }
+      }
+      const cat = new Animal('猫')
+      console.log(cat)
+      class Cat extends Animal {
+        constructor(name) {
+          // super(name)  用Animal 创建实例化对象,但是将 this指向变成 Cat 的实例化类，给 Cat 的实例化类里面添加了 Animal 内的属性和方法
+          super(name)
+        }
+        sing() {
+          console.log('miao')
+        }
+      }
+      const xiaoHei = new Cat(cat.name)
+      // console.log(xiaoHei.name)
+      // xiaoHei.sayName()
+      xiaoHei.sing()
     </script>
   </body>
 </html>
