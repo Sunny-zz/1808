@@ -1,0 +1,17 @@
+{
+  "name": "npm-demo",
+  "version": "1.0.0",
+  "description": "just a npm demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm "
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "sunny-zz",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

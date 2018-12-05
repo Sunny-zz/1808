@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script src="./js/button.js"></script> -->
+    <script src="./js/index.js"></script>
+    <script>
+      // node
+      // npm  node 的包管理工具
+      // 将我们的项目依赖让 npm 去管理
+      // node 的模块化开发   node 将每一个js文件称作为一个模块
+      // node 里面将模块分为三类   核心模块  第三方模块  自定义模块
+      // 模块的导入导出语法浏览器是不支持的
+      // 需要使用编译工具将浏览器不支持的代码转化成浏览器支持的
+      // webpack + babel
+
+      // 将很多的 js 文件全部合并到一个 js 文件内，页面只需要引入一个 js 即可实现全部功能。
+      // 不同模块内的数据不相互影响，其实就是都有自己的作用域，那么如果一个模块想用另一个模块内的某个值需要使用 module.exports 先导出，然后哪个模块使用就用 require 方法导入，require 方法的返回值就是模块导出的数据。
+      // 如何使用 npm 给项目安装 第三方模块
+      // 1.将本地项目初始化为 npm 项目 npm init
+      // npm init -y 参数 所有都选默认的
+      // 2.初始化之后会生成一个 package.json 文件，npm 项目配置文件，可以使用 npm install 命令安装项目依赖了(模块)，
+      // npm install jquery 在当前项目下安装了 jquery 最新版模块
+      // install 可以简写成 i
+      // npm uninstall jquery 删除当前项目下的 jquery 模块
+      //3.如何使用下载好的 jquery 模块，在自定义模块内使用 require 命令
+
+      // serve 包 起 node 服务
+      // npm i -g serve 安装 这样安装的包是全局的哪里都能用 serve 命令
+      // npm uninstall -g serve 卸载
+    </script>
+  </body>
+</html>
