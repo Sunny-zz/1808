@@ -28,11 +28,21 @@
       // npm install jquery 在当前项目下安装了 jquery 最新版模块
       // install 可以简写成 i
       // npm uninstall jquery 删除当前项目下的 jquery 模块
+      // 下载包的时候包名后面可以加上 @版本号 去下载相应的版本
       //3.如何使用下载好的 jquery 模块，在自定义模块内使用 require 命令
 
       // serve 包 起 node 服务
       // npm i -g serve 安装 这样安装的包是全局的哪里都能用 serve 命令
       // npm uninstall -g serve 卸载
+
+      // npm 将项目依赖分为两种 一种是非必须的依赖(类似打包压缩等) 另一种是必须的  非必须的依赖使用  npm i 包名 --save-dev 安装  必须的按照之前的方式安装
+      // 非必须  npm i 包 -D | npm i 包名 --save-dev
+      // 必须  npm i 包 | npm i 包 --save
+
+      // 安装的各种包的信息都会存储在 package.json 文件下
+      // 使用  npm i 命令可以将 package.json 下记录的所有项目依赖根据对应的版本下载下来。
+
+      // 每一个 git 仓库根目录下都可以添加一个 隐藏文件 .gitignore 该文件的作用是 忽略上传，只要将文件夹名或者文件名写入到 该隐藏文件内 那么对应文件或文件夹就会不上传到 git
     </script>
   </body>
 </html>
