@@ -123,6 +123,10 @@ git merge gh-pages   合并的时候必须保证主分支上的内容没有修�
   git checkout -b gh-pages 新建一个分支并切换过去  
 5.项目就能访问了
 
+我想要更新我的项目 (master 分支上一般放项目的源码)
+1.进入到 master 分支进行更新，添加新功能并上传
+2.更新 gh-pages 分支，切换到 gh-pages 分支 使用 git pull origin master 拉取主分支上的更新 使用 git push 上传
+
 
 删除分支操作
 首先得切换到主分支
