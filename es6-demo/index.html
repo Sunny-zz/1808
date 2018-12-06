@@ -7,6 +7,7 @@
     <title>Document</title>
   </head>
   <body>
+    <script src="./dist/bundle.js"></script>
     <script>
       // ECMAJAVASCRIPT   es3  es5       es6|es2015|新js     typescript
       // es6
@@ -213,29 +214,59 @@
       // const xiaoHei = new Cat()
       // console.log(xiaoHei)
 
-      class Animal {
-        constructor(name) {
-          this.name = name
-        }
-        sayName() {
-          console.log(this.name)
-        }
-      }
-      const cat = new Animal('猫')
-      console.log(cat)
-      class Cat extends Animal {
-        constructor(name) {
-          // super(name)  用Animal 创建实例化对象,但是将 this指向变成 Cat 的实例化类，给 Cat 的实例化类里面添加了 Animal 内的属性和方法
-          super(name)
-        }
-        sing() {
-          console.log('miao')
-        }
-      }
-      const xiaoHei = new Cat(cat.name)
-      // console.log(xiaoHei.name)
-      // xiaoHei.sayName()
-      xiaoHei.sing()
+      // class Animal {
+      //   constructor(name) {
+      //     this.name = name
+      //   }
+      //   sayName() {
+      //     console.log(this.name)
+      //   }
+      // }
+      // const cat = new Animal('猫')
+      // console.log(cat)
+      // class Cat extends Animal {
+      //   constructor(name) {
+      //     // super(name)  用Animal 创建实例化对象,但是将 this指向变成 Cat 的实例化类，给 Cat 的实例化类里面添加了 Animal 内的属性和方法
+      //     super(name)
+      //   }
+      //   sing() {
+      //     console.log('miao')
+      //   }
+      // }
+      // const xiaoHei = new Cat(cat.name)
+      // // console.log(xiaoHei.name)
+      // // xiaoHei.sayName()
+      // xiaoHei.sing()
+
+      // node模块  npm        yarn  cnpm
+      // require 导入    module.exports 导出
+      // 安装  npm install xx --save     npm i xx -D
+      // -g    serve
+      // uninstall
+
+      // class Animal{
+      //   constructor(name){
+      //     // 构造器
+      //   }
+      //   sayName(){
+      //     console.log('xx')
+      //   }
+      // }
+      // const cat = new Animal('xxx')
+      // extends    super
+
+      // es6 模块
+      // es6 的模块导入只能写在最顶端
+      // 导出
+      // 1.  export {a,b,c}  可以导出多次
+      // 2.  export default a 只能使用一次
+      // 导入
+
+      // 1. import { a,b,c } from '路径' 这种导入方式必须和导出的名字一致 也可以使用  import {a as c} 换名
+      // 2. import x from '路径'
+      // json 酷似对象  但是里面的所有内容都必须使用双引号，而且每一项的最后一项不能加逗号
+      // package.json 内的 scripts 项 代表脚本
+      // 使用    npm run 脚本名     执行该脚本命令
     </script>
   </body>
 </html>

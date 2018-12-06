@@ -137,3 +137,15 @@
    `/home/zzt/.nvm/versions/node/v9.2.0/bin`
 2. 打开.bashrc 添加 `export PATH="\$PATH:/home/zzt/.nvm/versions/node/v9.2.0/bin"` 到最后一行保存
 3. 重启命令行
+
+## webpack 编译 es6 语法
+
+- 将项目初始化为 npm 项目 使用 `npm init -y` 命令
+- 在项目下安装 webpack 工具 `npm install webpack webpack-cli`
+- 将项目下存储 js 文件的文件夹改名成 src
+- 在项目的根目录下新建文件 webpack.config.js,将官网首页的代码复制粘贴
+- 在 package.json 添加一条脚本命令 `build:"webpack"`
+- 在命令行中该项目下执行 `npm run build`
+- 在 index.html 引入打包好的 dist 下面的 bundle.js
+
+**要确保打包的入口文件是 index.js,也就是说 src 下必须有 index.js**
