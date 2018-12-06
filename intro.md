@@ -1,0 +1,44 @@
+# react 介绍
+
+之前的处理 直接操作 dom 节点，react vue angular 虚拟 dom ，只要数据变虚拟 dom 结构就改变，最后将虚拟的 dom 转化成正真的。
+
+## 单页面应用
+
+### 搭建 react 开发环境
+
+利用官方提供的脚手架 `create-react-app`
+
+- 使用 npm 全局安装 `create-react-app`，`npm i create-react-app -g`,安装好之后就可以使用 create-react-app 命令了。
+- 使用 create-react-app 创建一个 react 项目 `npm i create-react-app react-hello`
+- 安装好了之后 `cd react-hello && npm start`,实现了使用 webpack 将 src 下的源码打包到 localhost:3000 的服务器下的 static/js/bundle.js 内。弹出的页面就是访问了该服务器下的 index.html(该 html 的模板就是项目下 public 内的 index.html)
+
+### react 的 hello world
+
+修改 src 下的内容，写出自己的 hello world
+
+- 删除一些没有用的文件 logo.svg index.css app.test.js App.css
+- 打开 index.js,删除 `import './index.css';`
+- 打开 App.js,删除 `import logo from './logo.svg';` `import './App.css';` 并且把 return 内的所有内容删除,替换成 `<div>hello world</div>`
+
+### react 内的 jsx 语法
+
+jsx 语法：js 内部写 html。只有导入了 react 这个包，react 项目内才能写 jsx 语法。
+使用 ReactDOM.render 将虚拟的 reactDom 加载到真实的 dom 节点上。
+我们把 react 项目中的 js 称作为 组件。组件内部默认有个 render 方法 ,该方法内写 return，返回的内容就是该组件的 html 结构。
+jsx 元素只能被包裹在一个闭合标签内，组件的 return 只能返回一个标签
+react 组件内的 render 方法是默认就执行的，想要在 jsx 内使用 js 需要将 js 使用大括号包裹
+jsx 内使用 style 属性 `style = {{width:'200px'}}`
+jsx 的属性不能写成关键字 class -> className for -> htmlFor
+
+### 组件的样式
+
+1. 行内样式，但是必须写成 `style = {{width:'200px'}}`
+2. 外链样式 直接新建 css 文件，当做模块导入即可 `import '路径需要写后缀名'`
+
+**我们引入的样式都是全局的所以要注意不要和其他的组件冲突**
+**一个组件最好对应一个组件的样式文件**
+
+### react 图片处理
+
+网上的图片可以直接使用
+如何引入本地的图片 将图片当做模块导入到对应的组件内 `import pic from './img/1.jpeg'`
