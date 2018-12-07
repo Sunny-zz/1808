@@ -6,8 +6,16 @@ class Button extends Component {
   //
   render() {
     // console.log(this.props)
-    const { txt } = this.props
-    return <button className="btn">{txt ? txt : '按钮'}</button>
+    const { txt, bgColor, onClick } = this.props
+    return (
+      <button
+        style={{ backgroundColor: bgColor ? bgColor : '#00b3d4' }}
+        className="btn"
+        onClick={onClick}
+      >
+        {txt ? txt : '按钮'}
+      </button>
+    )
   }
 }
 

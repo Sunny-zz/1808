@@ -10,10 +10,16 @@ class App extends Component {
     return (
       <div>
         <h1>hello props</h1>
-        <Button txt="哈哈" />
-        <Button />
+        <Button txt="登录" bgColor="blue" onClick={this.clickLogin} />
+        <Button txt="注册" onClick={this.clickSignUp} />
       </div>
     )
+  }
+  clickLogin = () => {
+    alert('登录')
+  }
+  clickSignUp = () => {
+    alert('注册')
   }
 }
 export default App
