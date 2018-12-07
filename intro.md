@@ -68,6 +68,7 @@ this.setState({
 ```
 
 **注意：不能写成 this.state.num++ 因为 ++ 相当于重新赋值，就是直接修改了**
-
+**setState 方法是异步的方法，该方法执行是需要一点点时间的，但是不影响其他语句的执行。所以直接在 setSate 方法后面输出 state 还是修改之前的 state。**
+**_当修改了 state 时 render 会重新执行,只会重新渲染跟改变的 state 相关的 html_**
 组件内部事件如何传参
-假如我定义了一个函数是 changeModal，该函数内有一个参数，想给组件的某个 html 绑定事件调用的时候传参，不能写成 `onClick={this.changeModal(true)}`，要写成 `onClick={() => {this.changeModal(true)}}`，因为 onClick 的属性值必须是一个函数，而该函数内部想要使用 this 的话必须定义成箭头函数。
+假如我定义了一个函数是 changeModal，该函数内有一个参数，想给组件的某个 html 绑定事件,调用的时候传参，不能写成 `onClick={this.changeModal(true)}`，要写成 `onClick={() => {this.changeModal(true)}}`，因为 onClick 的属性值必须是一个函数，而该函数内部想要使用 this 的话必须定义成箭头函数。

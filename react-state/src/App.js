@@ -9,6 +9,9 @@ class App extends Component {
     show: false
   }
   render() {
+    // 当修改了 state 时 render 会重新执行,只会重新渲染跟改变的 state 相关的 html
+    // 在 render 方法下可以查看最新的 state
+    // console.log(this.state.show)
     return (
       <>
         <span>{this.state.num}</span>
@@ -93,6 +96,7 @@ class App extends Component {
   //   })
   // }
   changeModal = isShow => {
+    console.log(this.state.show)
     this.setState({
       show: isShow
     })
