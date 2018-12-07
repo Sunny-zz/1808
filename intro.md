@@ -42,3 +42,29 @@ jsx 的属性不能写成关键字 class -> className for -> htmlFor
 
 网上的图片可以直接使用
 如何引入本地的图片 将图片当做模块导入到对应的组件内 `import pic from './img/1.jpeg'`
+
+### react 的 state(状态)
+
+react 的事件绑定，都是绑定在标签内部的 `<button onClick={fun}>+</button>` fun 是方法名,
+通常 react 的事件函数定义成该组件的类的一个方法,那么绑定事件就要写成 `<button onClick={this.fun}>+</button>`
+**我们在组件的函数内想要使用组件内的 this 需要将函数定义成箭头函数**
+
+只要是页面发生改变就要使用状态控制,例如我们实现一个点击按钮数字加一，需要先在组件内部定义一个状态
+
+```js
+state = {
+  num: 1
+}
+```
+
+在 jsx 内部使用这个状态， `<span>{this.state.num}</span>`
+
+想要修改 state 必须使用 setState，还要注意组件的 state 不能直接修改。要实现 +1 写成
+
+```js
+this.setState({
+  num: this.state.num + 1
+})
+```
+
+**注意：不能写成 this.state.num++ 因为 ++ 相当于重新赋值，就是直接修改了**
