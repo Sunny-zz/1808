@@ -68,3 +68,6 @@ this.setState({
 ```
 
 **注意：不能写成 this.state.num++ 因为 ++ 相当于重新赋值，就是直接修改了**
+
+组件内部事件如何传参
+假如我定义了一个函数是 changeModal，该函数内有一个参数，想给组件的某个 html 绑定事件调用的时候传参，不能写成 `onClick={this.changeModal(true)}`，要写成 `onClick={() => {this.changeModal(true)}}`，因为 onClick 的属性值必须是一个函数，而该函数内部想要使用 this 的话必须定义成箭头函数。
