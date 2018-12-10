@@ -40,7 +40,7 @@ class Loop extends Component {
             onClick={() => {
               this.change(3)
             }}
-            style={{ bgckgroundColor: ind === 3 ? 'red' : '#fff' }}
+            style={{ backgroundColor: ind === 3 ? 'red' : '#fff' }}
           />
         </ul>
       </div>
