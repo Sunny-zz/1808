@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <h1>hello props</h1>
-        <Button txt="登录" bgColor="blue" onClick={this.clickLogin} />
+        <Button txt="登录1" bgColor="blue" onClick={this.clickLogin} />
         <Button txt="注册" onClick={this.clickSignUp} />
       </div>
     )
