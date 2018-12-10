@@ -8,9 +8,20 @@ class Loop extends Component {
   state = {
     ind: 0
   }
+
+  componentDidMount() {
+    // 可以允许修改 state
+    // 因为 cdm 是首次渲染到页面才执行，只执行一次，那么获取 ind 就一直是 0
+    setInterval(() => {
+      this.autoPlay()
+    }, 1000)
+  }
   render() {
     // 由于return内使用了多次 this.state.ind
+    // 将刷新页面上来就执行的 setInterval 写到生命周期函数中   cdm  componentDidMount(组件初次渲染完毕)
+    // console.log('render ')
     const { ind } = this.state
+    console.log(ind)
     return (
       <div className="show">
         <img src={pic1} alt="" className={`${ind === 0 && 'active'}`} />
@@ -46,11 +57,18 @@ class Loop extends Component {
       </div>
     )
   }
+
   change = newInd => {
     // 获取真实的 dom 节点   回流 或 重绘
     // 修改 state
     this.setState({
       ind: newInd
+    })
+  }
+  autoPlay = () => {
+    const { ind } = this.state
+    this.setState({
+      ind: ind === 3 ? 0 : ind + 1
     })
   }
   // change2 = ()=>{
