@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../static/gloable.css'
 import Button from './Button/Button'
+import Card from './Card/Card'
+import pic from '../img/1.png'
 class App extends Component {
   render() {
     // 当父组件内部想要使用多个相同子组件的时候，而每个子组件大部分一样只有以下部分不同，此时这些不同的地方我们需要父组件告知子组件要变成什么样。
@@ -10,8 +12,15 @@ class App extends Component {
     return (
       <div>
         <h1>hello props</h1>
-        <Button txt="登录1" bgColor="blue" onClick={this.clickLogin} />
+        <Button txt="登录" bgColor="blue" onClick={this.clickLogin} />
         <Button txt="注册" onClick={this.clickSignUp} />
+        <Card
+          imgSrc={pic}
+          title="Europe Street beat"
+          pra="www.instagram.com"
+          cardWidth="300px"
+        />
+        <Card imgSrc={pic} />
       </div>
     )
   }

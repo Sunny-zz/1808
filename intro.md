@@ -72,3 +72,9 @@ this.setState({
 **_当修改了 state 时 render 会重新执行,只会重新渲染跟改变的 state 相关的 html_**
 组件内部事件如何传参
 假如我定义了一个函数是 changeModal，该函数内有一个参数，想给组件的某个 html 绑定事件,调用的时候传参，不能写成 `onClick={this.changeModal(true)}`，要写成 `onClick={() => {this.changeModal(true)}}`，因为 onClick 的属性值必须是一个函数，而该函数内部想要使用 this 的话必须定义成箭头函数。
+
+### react 组件中的 setInterval
+
+当我们需要在页面刷新的时候，使用 setInterval 更新 state，
+
+### react 组件的 props 类型检查
