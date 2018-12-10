@@ -7,8 +7,8 @@ class Card extends Component {
     return (
       <div className="card" style={{ width: cardWidth }}>
         <img src={imgSrc} alt="" />
-        <h3>{title ? title : '标题'}</h3>
-        <p>{pra ? pra : '段落'}</p>
+        <h3>{title}</h3>
+        <p>{pra}</p>
       </div>
     )
   }
@@ -22,4 +22,8 @@ Card.propTypes = {
   // imgSrc 属性的值是字符串而且是必须的属性，也就是说父组件使用子组件的时候必须传递该属性
   imgSrc: PropTypes.string.isRequired
 }
-//
+//使用  propTypes 对 props 进行默认值设置
+Card.defaultProps = {
+  title: '标题',
+  pra: '段落'
+}

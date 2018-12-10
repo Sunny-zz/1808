@@ -77,4 +77,34 @@ this.setState({
 
 当我们需要在页面刷新的时候，使用 setInterval 更新 state，
 
-### react 组件的 props 类型检查
+### react 组件的 props 类型检查以及设置 props 的默认值
+
+两个功能都依赖于 react 自带的 prop-types 包
+
+#### 类型检测
+
+1. 引入 PropTypes `import PropTypes from 'prop-types'`
+2. 在 class 类的外面设置 该组件的的 props 类型检测，比如组件名为 Card
+
+   ```js
+   Card.propTypes = {
+     // 将该组件的 cardWidth 的属性值规定为字符串，也就是当父组件使用该组件的传 props 时，该属性的属性值需要是字符串类型
+     cardWidth: PropTypes.string,
+     // imgSrc 属性的值是字符串而且是必须的属性，也就是说父组件使用子组件的时候必须传递该属性
+     imgSrc: PropTypes.string.isRequired
+   }
+   ```
+
+   详细验证写法参考[链接](https://react.docschina.org/docs/typechecking-with-proptypes.html)
+
+#### 设置默认值
+
+1. 引入 prop-types `import PropTypes from 'prop-types'`
+2. 直接在 class 外，对组件的 defaultProps 进行设置
+
+   ```js
+   Card.defaultProps = {
+     title: '标题',
+     pra: '段落'
+   }
+   ```
