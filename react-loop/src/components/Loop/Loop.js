@@ -14,27 +14,27 @@ class Loop extends Component {
     return (
       <div className="show">
         <img src={pic1} alt="" className={`${ind === 0 && 'active'}`} />
-        <img src={pic2} alt="" />
-        <img src={pic3} alt="" />
-        <img src={pic4} alt="" />
+        <img src={pic2} alt="" className={`${ind === 1 && 'active'}`} />
+        <img src={pic3} alt="" className={`${ind === 2 && 'active'}`} />
+        <img src={pic4} alt="" className={`${ind === 3 && 'active'}`} />
         <ul className="list">
           <li
             onClick={() => {
               this.change(0)
             }}
-            style={{ bgckgroundColor: ind === 0 ? 'red' : '#fff' }}
+            style={{ backgroundColor: ind === 0 ? 'red' : '#fff' }}
           />
           <li
             onClick={() => {
               this.change(1)
             }}
-            style={{ bgckgroundColor: ind === 1 ? 'red' : '#fff' }}
+            style={{ backgroundColor: ind === 1 ? 'red' : '#fff' }}
           />
           <li
             onClick={() => {
               this.change(2)
             }}
-            style={{ bgckgroundColor: ind === 2 ? 'red' : '#fff' }}
+            style={{ backgroundColor: ind === 2 ? 'red' : '#fff' }}
           />
           <li
             onClick={() => {
