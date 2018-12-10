@@ -79,8 +79,6 @@ this.setState({
 
 ### react 组件的 props 类型检查以及设置 props 的默认值
 
-两个功能都依赖于 react 自带的 prop-types 包
-
 #### 类型检测
 
 1. 引入 PropTypes `import PropTypes from 'prop-types'`
@@ -99,12 +97,11 @@ this.setState({
 
 #### 设置默认值
 
-1. 引入 prop-types `import PropTypes from 'prop-types'`
-2. 直接在 class 外，对组件的 defaultProps 进行设置
+直接在 class 外，对组件的 defaultProps 进行设置，该设置不需要依赖 prop-types 包的支持
 
-   ```js
-   Card.defaultProps = {
-     title: '标题',
-     pra: '段落'
-   }
-   ```
+```js
+Card.defaultProps = {
+  title: '标题',
+  pra: '段落'
+}
+```

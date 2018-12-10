@@ -22,7 +22,7 @@ Card.propTypes = {
   // imgSrc 属性的值是字符串而且是必须的属性，也就是说父组件使用子组件的时候必须传递该属性
   imgSrc: PropTypes.string.isRequired
 }
-//使用  propTypes 对 props 进行默认值设置
+//使用  defaultProps 对 props 进行默认值设置
 Card.defaultProps = {
   title: '标题',
   pra: '段落'
