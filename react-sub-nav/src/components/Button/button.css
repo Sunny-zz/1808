@@ -1,0 +1,13 @@
+.btn {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: aliceblue;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: teal;
+}

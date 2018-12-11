@@ -1,0 +1,25 @@
+.sub-nav {
+  width: 260px;
+  display: flex;
+  height: 100vh;
+  background-color: #ccc;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+.sub-nav > h2 {
+  font-size: 30px;
+}
+.sub-nav > ul {
+  list-style: none;
+  padding: 0;
+}
+.sub-nav > ul > li {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sub-nav > ul > li > a {
+  color: aliceblue;
+  font-size: 20px;
+}

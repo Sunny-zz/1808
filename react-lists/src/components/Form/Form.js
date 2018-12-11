@@ -12,6 +12,8 @@ class Form extends Component {
           ref={inp => {
             this.inp = inp
           }}
+          defaultValue="12312"
+          placeholder="please write your email"
         />
         <button onClick={this.handleClick}>提交</button>
       </div>
