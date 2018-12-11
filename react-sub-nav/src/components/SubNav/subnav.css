@@ -6,7 +6,8 @@
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 0px;
+  left: -260px;
 }
 .sub-nav > h2 {
   font-size: 30px;
