@@ -105,3 +105,13 @@ Card.defaultProps = {
   pra: '段落'
 }
 ```
+
+### react 表单
+
+#### 受控组件(提倡)
+
+1. 将表单的 value 设置成 state
+2. 必须使用 onChange 事件修改 state
+3. 满足以上两个条件你的表单就变成了受控组件
+
+#### 非受控组件

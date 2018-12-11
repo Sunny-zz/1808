@@ -15,12 +15,14 @@ class App extends Component {
         id: '31232',
         txt: 'hahaha2'
       }
-    ]
+    ],
+    val: ''
   }
   render() {
     // 尽量不要在 return 函数内 写太多 js 操作
     // return 内就是负责展示的，逻辑操作最好在 return 之外
-    const { comments } = this.state
+    const { comments, val } = this.state
+
     //没有评论的时候展示某个div，有评论的时候展示评论列表
     // 列表渲染 只需要将对象数组变成标签数组
     //  map 将一个数组生成一个新数组  map 参数内的返回值就是新数组中的元素
@@ -31,7 +33,7 @@ class App extends Component {
 
     const showDiv = comments.length ? (
       <ul>
-        {[...comments].reverse().map((comment, index) => (
+        {[...comments].reverse().map(comment => (
           <li key={comment.id}>
             {comment.txt}
             <button
@@ -47,12 +49,11 @@ class App extends Component {
     ) : (
       <div>请评论</div>
     )
-    console.log(this.state.comments)
     return (
       <div>
         <h1>文章</h1>
         <p>asdg asjkdg kasjgd aksjdg ka</p>
-        <textarea name="" id="" cols="30" rows="10" />
+        <textarea value={val} onChange={this.handleChange} />
         <button onClick={this.addComment}>评论</button>
         <h4>回复</h4>
         {showDiv}
@@ -75,6 +76,12 @@ class App extends Component {
     const { comments } = this.state
     this.setState({
       comments: comments.filter(comment => comment.id !== id)
+    })
+  }
+  handleChange = event => {
+    // 事件对象   只有事件函数的第一个参数指的是事件函数，事件函数指的是直接给事件赋值的那个函数
+    this.setState({
+      val: event.target.value
     })
   }
 }
