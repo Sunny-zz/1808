@@ -16,12 +16,13 @@ class App extends Component {
         txt: 'hahaha2'
       }
     ],
-    val: ''
+    val: '',
+    num: '3'
   }
   render() {
     // 尽量不要在 return 函数内 写太多 js 操作
     // return 内就是负责展示的，逻辑操作最好在 return 之外
-    const { comments, val } = this.state
+    const { comments, val, num } = this.state
 
     //没有评论的时候展示某个div，有评论的时候展示评论列表
     // 列表渲染 只需要将对象数组变成标签数组
@@ -49,7 +50,7 @@ class App extends Component {
     ) : (
       <div>请评论</div>
     )
-    console.log(comments)
+
     return (
       <div>
         <h1>文章</h1>
@@ -57,11 +58,17 @@ class App extends Component {
         <textarea
           value={val}
           onChange={this.handleChange}
-          onKeyDown={this.handleEnter}
+          onKeyPress={this.handleEnter}
         />
         <button onClick={this.addComment}>评论</button>
         <h4>回复</h4>
         {showDiv}
+        <select value={num} onChange={this.handleSelect}>
+          <option value="1">11</option>
+          <option value="2">22</option>
+          <option value="3">33</option>
+          <option value="4">44</option>
+        </select>
       </div>
     )
   }
@@ -96,9 +103,15 @@ class App extends Component {
     })
   }
   handleEnter = event => {
-    if (event.keyCode === 13) {
+    console.log(event.which)
+    if (event.which === 13) {
       this.addComment()
     }
+  }
+  handleSelect = event => {
+    this.setState({
+      num: event.target.value
+    })
   }
 }
 
