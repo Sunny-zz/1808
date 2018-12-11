@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import shortId from 'shortid'
 class App extends Component {
   state = {
     comments: [
@@ -49,11 +49,16 @@ class App extends Component {
     ) : (
       <div>请评论</div>
     )
+    console.log(comments)
     return (
       <div>
         <h1>文章</h1>
         <p>asdg asjkdg kasjgd aksjdg ka</p>
-        <textarea value={val} onChange={this.handleChange} />
+        <textarea
+          value={val}
+          onChange={this.handleChange}
+          onKeyDown={this.handleEnter}
+        />
         <button onClick={this.addComment}>评论</button>
         <h4>回复</h4>
         {showDiv}
@@ -61,15 +66,21 @@ class App extends Component {
     )
   }
   addComment = () => {
-    const newComment = {
-      id: '56789',
-      txt: 'asdas dkashk dj'
+    const { comments, val } = this.state
+    // 将该条评论更新到页面上,并且清空评论内容
+    // 当输入的是有效字符的时候 才能评论
+    if (val.trim()) {
+      const newComment = {
+        id: shortId(),
+        txt: val
+      }
+      this.setState({
+        comments: [...comments, newComment],
+        val: ''
+      })
+    } else {
+      alert('请输入有效字符')
     }
-    const { comments } = this.state
-    // 将该条评论更新到页面上
-    this.setState({
-      comments: [...comments, newComment]
-    })
   }
   delComment = id => {
     // splice     filter
@@ -83,6 +94,11 @@ class App extends Component {
     this.setState({
       val: event.target.value
     })
+  }
+  handleEnter = event => {
+    if (event.keyCode === 13) {
+      this.addComment()
+    }
   }
 }
 

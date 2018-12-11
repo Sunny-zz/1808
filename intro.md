@@ -112,6 +112,11 @@ Card.defaultProps = {
 
 1. 将表单的 value 设置成 state
 2. 必须使用 onChange 事件修改 state
+   如何使用 onChange 事件修改 state
+
+   - 利用事件函数的事件对象获取输入的 value 值 `event.target.value`
+   - 使用 setState 修改 `this.setState({val:event.target.value})`
+
 3. 满足以上两个条件你的表单就变成了受控组件
 
 #### 非受控组件
