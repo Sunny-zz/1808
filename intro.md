@@ -118,5 +118,6 @@ Card.defaultProps = {
    - 使用 setState 修改 `this.setState({val:event.target.value})`
 
 3. 满足以上两个条件你的表单就变成了受控组件
+   **`input` `textarea` `select` 这三个标签都可以使用上面的做法，改成 react 的受控组件**
 
 #### 非受控组件

@@ -17,12 +17,15 @@ class App extends Component {
       }
     ],
     val: '',
-    num: '3'
+    num: '3',
+    username: '',
+    password: '',
+    isAgree: false
   }
   render() {
     // 尽量不要在 return 函数内 写太多 js 操作
     // return 内就是负责展示的，逻辑操作最好在 return 之外
-    const { comments, val, num } = this.state
+    const { comments, val, num, username, password, isAgree } = this.state
 
     //没有评论的时候展示某个div，有评论的时候展示评论列表
     // 列表渲染 只需要将对象数组变成标签数组
@@ -57,18 +60,40 @@ class App extends Component {
         <p>asdg asjkdg kasjgd aksjdg ka</p>
         <textarea
           value={val}
-          onChange={this.handleChange}
+          name="val"
+          onChange={this.handleInput}
           onKeyPress={this.handleEnter}
         />
         <button onClick={this.addComment}>评论</button>
         <h4>回复</h4>
         {showDiv}
-        <select value={num} onChange={this.handleSelect}>
+        <select name="num" value={num} onChange={this.handleInput}>
           <option value="1">11</option>
           <option value="2">22</option>
           <option value="3">33</option>
           <option value="4">44</option>
         </select>
+        <br />
+        <label htmlFor="username">用户名:</label>
+        <input
+          name="username"
+          id="username"
+          type="text"
+          value={username}
+          onChange={this.handleInput}
+        />
+        <br />
+        <label htmlFor="password">密码:</label>
+        <input
+          name="password"
+          id="password"
+          type="password"
+          value={password}
+          onChange={this.handleInput}
+        />
+        <br />
+        <input name="agree" type="checkbox" id="agree" checked={isAgree} />
+        <label htmlFor="agree">是否同意</label>
       </div>
     )
   }
@@ -96,21 +121,28 @@ class App extends Component {
       comments: comments.filter(comment => comment.id !== id)
     })
   }
-  handleChange = event => {
-    // 事件对象   只有事件函数的第一个参数指的是事件函数，事件函数指的是直接给事件赋值的那个函数
-    this.setState({
-      val: event.target.value
-    })
-  }
+  // handleChange = event => {
+  //   // 事件对象   只有事件函数的第一个参数指的是事件函数，事件函数指的是直接给事件赋值的那个函数
+  //   this.setState({
+  //     val: event.target.value
+  //   })
+  // }
   handleEnter = event => {
     console.log(event.which)
     if (event.which === 13) {
       this.addComment()
     }
   }
-  handleSelect = event => {
+  // handleSelect = event => {
+  //   this.setState({
+  //     num: event.target.value
+  //   })
+  // }
+
+  handleInput = event => {
+    const target = event.target
     this.setState({
-      num: event.target.value
+      [target.name]: target.value
     })
   }
 }
