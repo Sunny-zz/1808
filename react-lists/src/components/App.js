@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import shortId from 'shortid'
+import Form from './Form/Form'
 class App extends Component {
   state = {
     comments: [
@@ -100,6 +101,9 @@ class App extends Component {
           onChange={this.handleInput}
         />
         <label htmlFor="agree">是否同意</label>
+        <br />
+        <br />
+        <Form />
       </div>
     )
   }
