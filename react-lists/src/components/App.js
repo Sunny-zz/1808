@@ -31,9 +31,16 @@ class App extends Component {
 
     const showDiv = comments.length ? (
       <ul>
-        {[...comments].reverse().map(comment => (
+        {[...comments].reverse().map((comment, index) => (
           <li key={comment.id}>
-            {comment.txt} <button>删除</button>
+            {comment.txt}
+            <button
+              onClick={() => {
+                this.delComment(comment.id)
+              }}
+            >
+              删除
+            </button>
           </li>
         ))}
       </ul>
@@ -46,17 +53,29 @@ class App extends Component {
         <h1>文章</h1>
         <p>asdg asjkdg kasjgd aksjdg ka</p>
         <textarea name="" id="" cols="30" rows="10" />
-        <button>评论</button>
+        <button onClick={this.addComment}>评论</button>
         <h4>回复</h4>
         {showDiv}
       </div>
     )
   }
-  xxx = () => {
-    // const newComment = {
-    //   id: '111111',
-    //   txt: 'asdasdas'
-    // }
+  addComment = () => {
+    const newComment = {
+      id: '56789',
+      txt: 'asdas dkashk dj'
+    }
+    const { comments } = this.state
+    // 将该条评论更新到页面上
+    this.setState({
+      comments: [...comments, newComment]
+    })
+  }
+  delComment = id => {
+    // splice     filter
+    const { comments } = this.state
+    this.setState({
+      comments: comments.filter(comment => comment.id !== id)
+    })
   }
 }
 
