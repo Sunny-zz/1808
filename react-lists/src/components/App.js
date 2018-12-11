@@ -92,7 +92,13 @@ class App extends Component {
           onChange={this.handleInput}
         />
         <br />
-        <input name="agree" type="checkbox" id="agree" checked={isAgree} />
+        <input
+          name="isAgree"
+          type="checkbox"
+          id="agree"
+          checked={isAgree}
+          onChange={this.handleInput}
+        />
         <label htmlFor="agree">是否同意</label>
       </div>
     )
@@ -141,8 +147,10 @@ class App extends Component {
 
   handleInput = event => {
     const target = event.target
+    const value = target.type === 'checkbox' ? target.checked : target.value
+    const name = target.name
     this.setState({
-      [target.name]: target.value
+      [name]: value
     })
   }
 }
