@@ -12,7 +12,13 @@ class SubNav extends Component {
   render() {
     const { show } = this.props
     return (
-      <div className="sub-nav" style={{ left: show ? '0px' : '-260px' }}>
+      <div
+        className="sub-nav"
+        style={{ left: show ? '0px' : '-260px' }}
+        onClick={event => {
+          event.stopPropagation()
+        }}
+      >
         <h2>我的博客</h2>
         <ul>
           <li>

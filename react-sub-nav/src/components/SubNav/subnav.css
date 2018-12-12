@@ -8,6 +8,7 @@
   position: fixed;
   top: 0px;
   left: -260px;
+  transition: left 0.75s;
 }
 .sub-nav > h2 {
   font-size: 30px;

@@ -10,4 +10,5 @@
   font-size: 14px;
   border-radius: 6px;
   background-color: teal;
+  transition: margin-left 0.75s;
 }

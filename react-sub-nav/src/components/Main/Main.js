@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import './main.css'
 class Main extends Component {
   render() {
-    return <div className="main">main</div>
+    const { show } = this.props
+    return (
+      <div className="main" style={{ marginLeft: show ? '260px' : '0px' }}>
+        main
+      </div>
+    )
   }
 }
 

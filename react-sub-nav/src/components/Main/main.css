@@ -2,4 +2,5 @@
   background-color: hotpink;
   height: 1500px;
   margin-left: 0px;
+  transition: margin-left 0.75s;
 }
