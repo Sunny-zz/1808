@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" value="xliqhddkj g" />
+    <script>
+      // 原生的 ajax 请求
+      // jquery 的 ajax 请求
+      // react 的 ajax 请求
+
+      // 同步和异步   同步阻塞   异步非阻塞
+      // console.log(1)
+      // setTimeout(function() {
+      //   console.log(3)
+      // }, 1000)
+      // for (let i = 0; i < 1000; i++) {
+      //   console.log(i)
+      // }
+      // console.log(2)
+      // 原生 js 实现 ajax 请求
+      // 1. 创建 XMLHttpRequest 对象
+      // 该方法需要做兼容处理 参考文档即可
+      const xhr = new XMLHttpRequest()
+      // 2. 使用该对象 创建请求   open 方法
+      // open 的使用  需要接受三个参数
+      // 第一个参数 method(请求的方法或类型)  'GET'  'POST'
+      // 第二个参数 url(请求的地址)
+      // 第三个参数 async(是否异步)  10000% 选异步   true
+      xhr.open('GET', 'http://jsonplaceholder.typicode.com/posts', true)
+      // 3. 发出创建的请求   send 方法
+      xhr.send()
+      // 4. 使用 onreadystatechange 事件 监听请求
+      // 该事件只要发出了请求就会一直执行直到请求结束
+      xhr.onreadystatechange = function() {
+        // 判断请求是否成功，成功之后获取相应的数据
+        // 使用 readyState(该对象的请求状态 0-4) 和 status(状态码)
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // 此时就是请求成功，后台返回了数据
+          //  responseText 就是返回的数据
+          const res = xhr.responseText
+          // 由于现在数据交互都是 json 格式，所以后台返回的数据是 json 字符串，我们想要使用的话 想要将 json 字符串转化为对象
+          // 使用 JSON 的方法   JSON.stringify()    JSON.parse()将json转化为 对象
+          console.log(JSON.parse(res))
+          // 接下来就可以将数据展示到页面上了
+        }
+      }
+      // 9948d556-1825-416f-934f-b3ce046403e3
+    </script>
+  </body>
+</html>
