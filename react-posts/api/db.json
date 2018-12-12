@@ -1,0 +1,12 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "react 基础"
+    },
+    {
+      "id": 2,
+      "title": "vue 基础"
+    }
+  ]
+}
