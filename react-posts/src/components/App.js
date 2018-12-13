@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import Posts from './Posts/Posts'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+import Main from './Main/Main'
 class App extends Component {
   render() {
     return (
-      <div>
-        <Posts />
-      </div>
+      <Router>
+        <div>
+          <Main />
+        </div>
+      </Router>
     )
   }
 }
