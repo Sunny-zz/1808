@@ -2,11 +2,30 @@
   "posts": [
     {
       "id": 1,
-      "title": "react 基础"
+      "title": "react 基础",
+      "body": "React 可以非常轻松地创建用户交互界面。为你应用的每一个状态设计简洁的视图，在数据改变时 React 也可以高效地更新渲染界面。"
     },
     {
       "id": 2,
-      "title": "vue 基础"
+      "title": "vue 基础",
+      "body": "Vue 可以非常轻松地创建用户交互界面。为你应用的每一个状态设计简洁的视图，在数据改变时 React 也可以高效地更新渲染界面。"
+    }
+  ],
+  "comments": [
+    {
+      "id": "658756gyt1",
+      "txt": "react 值得入手",
+      "postId": 1
+    },
+    {
+      "id": "612256gyt1",
+      "txt": "react 挺不错",
+      "postId": 1
+    },
+    {
+      "id": "6587u7yy41",
+      "txt": "vue 很简单，适合新手",
+      "postId": 2
     }
   ]
 }

@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 
 class PostComment extends Component {
   render() {
-    return <div>postComment</div>
+    return (
+      <div>
+        <h3>评论</h3>
+      </div>
+    )
   }
 }
 

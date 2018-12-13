@@ -5,7 +5,8 @@ import PostBody from '../PostBody/PostBody'
 import PostComment from '../PostComment/PostComment'
 class Post extends Component {
   state = {
-    post: null
+    post: null,
+    comments: []
   }
   componentDidMount() {
     const { match } = this.props
@@ -16,7 +17,10 @@ class Post extends Component {
         this.setState({
           post: res.data
         })
-      }, 5000)
+      }, 1000)
+    })
+    axios.get(`http://localhost:3008/comments?postId=${id}`).then(res => {
+      console.log(res.data)
     })
   }
   render() {
@@ -24,7 +28,7 @@ class Post extends Component {
     // '' ""  0  undefined  null NaN
     const showDiv = post ? (
       <div>
-        <PostBody />
+        <PostBody post={post} />
         <PostComment />
       </div>
     ) : (
