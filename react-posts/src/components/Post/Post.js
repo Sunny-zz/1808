@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PostBody from '../PostBody/PostBody'
 import PostComment from '../PostComment/PostComment'
@@ -20,16 +19,18 @@ class Post extends Component {
       }, 1000)
     })
     axios.get(`http://localhost:3008/comments?postId=${id}`).then(res => {
-      console.log(res.data)
+      this.setState({
+        comments: res.data
+      })
     })
   }
   render() {
-    const { post } = this.state
+    const { post, comments } = this.state
     // '' ""  0  undefined  null NaN
     const showDiv = post ? (
       <div>
         <PostBody post={post} />
-        <PostComment />
+        <PostComment comments={comments} />
       </div>
     ) : (
       <div>
