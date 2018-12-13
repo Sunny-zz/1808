@@ -26,11 +26,12 @@ class Post extends Component {
   }
   render() {
     const { post, comments } = this.state
+    const { id } = this.props.match.params
     // '' ""  0  undefined  null NaN
     const showDiv = post ? (
       <div>
         <PostBody post={post} />
-        <PostComment comments={comments} />
+        <PostComment comments={comments} addComment={this.addComment} id={id} />
       </div>
     ) : (
       <div>
@@ -50,6 +51,12 @@ class Post extends Component {
     this.props.history.goBack()
     // 相当于页面跳转 作用相当于 Link
     // this.props.history.push('/')
+  }
+  addComment = newComment => {
+    const { comments } = this.state
+    this.setState({
+      comments: [...comments, newComment]
+    })
   }
 }
 

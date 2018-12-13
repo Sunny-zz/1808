@@ -145,3 +145,11 @@ react 中如何获取真实的 dom 节点？
 
 - 在父组件中定义修改 state 的方法
 - 将该方法传递给需要修改的子组件
+
+### react 路由(页面跳转) react-router
+
+react 项目是单页面应用，要实现页面提转的话需要依赖 react 的 react-router-dom 包来实现,官网参考链接 [react-router](https://reacttraining.com/react-router/web/guides/quick-start)
+
+- 在项目下安装 react-router-dom `npm i react-router-dom`
+- 在 App.js 内引入 BrowserRouter 。`import { BroswerRouter } from 'react-router-dom`
+  BroswerRouter 是 react-router-dom 包内的一个 react 组件，该组件的作用是

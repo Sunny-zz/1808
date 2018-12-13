@@ -19,7 +19,7 @@ class PostComment extends Component {
       <div>
         <h3>评论</h3>
         <textarea value={this.comment} onChange={this.handleComment} />
-        <button>评论</button>
+        <button onClick={this.addComment}>评论</button>
         {commentDiv}
       </div>
     )
@@ -28,6 +28,20 @@ class PostComment extends Component {
     this.setState({
       comment: event.target.value
     })
+  }
+  addComment = () => {
+    // 如果输入的不是有效字符不能评论
+    const { comment } = this.state
+    const { addComment, id } = this.props
+    if (comment.trim()) {
+      // 添加评论  执行父组件传递过来的方法
+      const newComment = {
+        id: '23123s',
+        txt: comment,
+        postId: id
+      }
+      addComment(newComment)
+    }
   }
 }
 
