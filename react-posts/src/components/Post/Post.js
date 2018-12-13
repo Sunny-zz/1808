@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import PostBody from '../PostBody/PostBody'
+import PostComment from '../PostComment/PostComment'
 class Post extends Component {
   state = {
     post: null
@@ -14,27 +16,27 @@ class Post extends Component {
         this.setState({
           post: res.data
         })
-      }, 1000)
+      }, 5000)
     })
   }
   render() {
     const { post } = this.state
     // '' ""  0  undefined  null NaN
     const showDiv = post ? (
-      <article>
-        <h1>{post.title}</h1>
-        <p>文章内容</p>
-      </article>
-    ) : (
-      <div>请稍等。。。</div>
-    )
-    return (
       <div>
-        <Link to="/">返回首页</Link>
-        <button onClick={this.back}>返回</button>
-        {showDiv}
+        <PostBody />
+        <PostComment />
+      </div>
+    ) : (
+      <div>
+        <img
+          style={{ width: '100%' }}
+          src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544693249201&di=0daf0a08daf49843b76fdec4bb02bd00&imgtype=0&src=http%3A%2F%2Fimg.ui.cn%2Fdata%2Ffile%2F8%2F9%2F9%2F445998.gif%3FimageMogr2%2Fauto-orient%2Fstrip%2Fthumbnail%2F%25211800%253E"
+          alt=""
+        />
       </div>
     )
+    return showDiv
   }
   back = () => {
     // 被当做路由组件的 react 组件默认会被传递一些 props
