@@ -6,7 +6,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Route component={Posts} path="/" />
+        <Route component={Posts} path="/" exact />
         <Route component={Post} path="/post" />
       </div>
     )
