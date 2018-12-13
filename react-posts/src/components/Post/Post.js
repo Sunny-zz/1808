@@ -2,23 +2,37 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 class Post extends Component {
+  state = {
+    post: null
+  }
   componentDidMount() {
     const { match } = this.props
     const id = match.params.id
     // 就可以通过 id 去服务器获取对应的文章内容了
     axios.get(`http://localhost:3008/posts/${id}`).then(res => {
-      console.log(res.data)
+      setTimeout(() => {
+        this.setState({
+          post: res.data
+        })
+      }, 1000)
     })
   }
   render() {
+    const { post } = this.state
+    // '' ""  0  undefined  null NaN
+    const showDiv = post ? (
+      <article>
+        <h1>{post.title}</h1>
+        <p>文章内容</p>
+      </article>
+    ) : (
+      <div>请稍等。。。</div>
+    )
     return (
       <div>
         <Link to="/">返回首页</Link>
         <button onClick={this.back}>返回</button>
-        <article>
-          <h1>文章标题</h1>
-          <p>文章内容</p>
-        </article>
+        {showDiv}
       </div>
     )
   }
