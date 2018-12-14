@@ -30,8 +30,13 @@ class Post extends Component {
     // '' ""  0  undefined  null NaN
     const showDiv = post ? (
       <div>
-        <PostBody post={post} />
-        <PostComment comments={comments} addComment={this.addComment} id={id} />
+        <PostBody post={post} num={comments.length} />
+        <PostComment
+          comments={comments}
+          addComment={this.addComment}
+          id={id}
+          delComment={this.delComment}
+        />
       </div>
     ) : (
       <div>
@@ -56,6 +61,12 @@ class Post extends Component {
     const { comments } = this.state
     this.setState({
       comments: [...comments, newComment]
+    })
+  }
+  delComment = id => {
+    const { comments } = this.state
+    this.setState({
+      comments: comments.filter(i => i.id !== id)
     })
   }
 }

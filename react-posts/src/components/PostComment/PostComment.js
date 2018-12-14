@@ -10,7 +10,16 @@ class PostComment extends Component {
     const commentDiv = comments.length ? (
       <ul>
         {comments.map(comment => (
-          <li key={comment.id}>{comment.txt}</li>
+          <li key={comment.id}>
+            {comment.txt}
+            <button
+              onClick={() => {
+                this.delComment(comment.id)
+              }}
+            >
+              删除
+            </button>
+          </li>
         ))}
       </ul>
     ) : (
@@ -55,6 +64,12 @@ class PostComment extends Component {
       // 2.添加删除评论按钮
       // 如何删除  发 delete 请求 `http://localhost:3008/comments/:id`请求成功之后 返回一个 {success:true}
     }
+  }
+  delComment = id => {
+    const { delComment } = this.props
+    axios.delete(`http://localhost:3008/comments/${id}`).then(res => {
+      delComment(id)
+    })
   }
 }
 
