@@ -1,0 +1,22 @@
+.home {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.home > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  margin-left: 100px;
+}
+.home > ul > li {
+  margin-right: 20px;
+  font-size: 14px;
+}
+.home > ul > li > a {
+  color: #71777c;
+}
+.home > ul > li > .active {
+  color: #007fff;
+}
