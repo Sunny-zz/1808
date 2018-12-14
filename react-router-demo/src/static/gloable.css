@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color: #f4f5f5;
+}
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
