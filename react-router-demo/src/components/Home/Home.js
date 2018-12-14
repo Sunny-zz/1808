@@ -4,10 +4,11 @@ import './home.css'
 import Recommend from '../Recommend/Recommend'
 import FrontEnd from '../FrontEnd/FrontEnd'
 import BackEnd from '../BackEnd/BackEnd'
+import Layout from '../Layout/Layout'
 class Home extends Component {
   render() {
     return (
-      <div className="home">
+      <Layout className="home">
         <ul>
           <li>
             <NavLink to="/" exact>
@@ -26,7 +27,7 @@ class Home extends Component {
           <Route component={FrontEnd} path="/welcome/frontend" />
           <Route component={BackEnd} path="/welcome/backend" />
         </div>
-      </div>
+      </Layout>
     )
   }
 }
