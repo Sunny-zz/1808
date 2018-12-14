@@ -16,7 +16,7 @@ class Header extends Component {
         <ul className="nav">
           <li>
             {/* 当该NavLink 的to属性的属性值和页面的路径匹配的时候 active 样式就会生效 */}
-            <NavLink activeClassName="active1" to="/" exact>
+            <NavLink activeClassName="active1" to="/" isActive={this.active}>
               首页
             </NavLink>
           </li>
@@ -33,6 +33,17 @@ class Header extends Component {
         </ul>
       </header>
     )
+  }
+  active = (...rest) => {
+    // 看页面的 url 如果满足条件就返回 true 首页导航就会变色了
+    // rest 全部的实参集合 数组   rest[1] 第二个参数 ---> location
+    const { pathname } = rest[1]
+    //   /     /welcome/frontend    /welcome/backend
+    if (pathname === '/' || pathname.indexOf('welcome') !== -1) {
+      return true
+    } else {
+      return false
+    }
   }
 }
 

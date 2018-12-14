@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom'
 import Home from '../Home/Home'
 import Activities from '../Activities/Activities'
 import Events from '../Events/Events'
-
+import './main.css'
+import Post from '../Post/Post'
 class Main extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class Main extends Component {
         <Switch>
           <Route component={Activities} path="/activities" />
           <Route component={Events} path="/events" />
+          <Route component={Post} path="/post/:id" />
           <Route component={Home} path="/" />
         </Switch>
       </div>
