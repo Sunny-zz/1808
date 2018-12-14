@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import Layout from '../Layout/Layout'
 
 class Post extends Component {
   render() {
     const { id } = this.props.match.params
     return (
-      <div>
+      <Layout className="post">
         <h1>文章标题</h1>
         <span>文章 id: {id}</span>
-      </div>
+      </Layout>
     )
   }
 }
