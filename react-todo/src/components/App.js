@@ -5,7 +5,8 @@ import Bottom from './Bottom/Bottom'
 import axios from 'axios'
 class App extends Component {
   state = {
-    todos: []
+    todos: [],
+    type: 'all'
   }
   componentDidMount() {
     axios.get('http://localhost:3008/todos').then(res => {
@@ -16,10 +17,10 @@ class App extends Component {
   }
 
   render() {
-    const { todos } = this.state
+    const { todos, type } = this.state
     const content = todos.length ? (
       <div>
-        <Bottom todos={todos} />
+        <Bottom todos={todos} type={type} changeType={this.changeType} />
       </div>
     ) : (
       <div>请添加</div>
@@ -31,6 +32,7 @@ class App extends Component {
           todos={todos}
           addTodo={this.addTodo}
           completeTodo={this.completeTodo}
+          type={type}
         />
         {content}
       </div>
@@ -66,6 +68,11 @@ class App extends Component {
           })
         })
       })
+  }
+  changeType = type => {
+    this.setState({
+      type: type
+    })
   }
 }
 

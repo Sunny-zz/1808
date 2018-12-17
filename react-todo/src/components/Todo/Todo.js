@@ -5,11 +5,27 @@ class Todo extends Component {
     txt: ''
   }
   render() {
-    const { todos, completeTodo } = this.props
+    const { todos, completeTodo, type } = this.props
     const { txt } = this.state
-    const todoList = todos.length ? (
+    // const showTodos = todos.filter(todo => {
+    //   if (type === 'all') {
+    //     return true
+    //   } else if (type === 'active') {
+    //     return !todo.completed
+    //   } else {
+    //     return todo.completed
+    //   }
+    // })
+    const showTodos = todos.filter(todo =>
+      type === 'all'
+        ? true
+        : type === 'active'
+        ? !todo.completed
+        : todo.completed
+    )
+    const todoList = showTodos.length ? (
       <ul>
-        {todos.map(todo => (
+        {showTodos.map(todo => (
           <li
             key={todo.id}
             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
@@ -38,6 +54,7 @@ class Todo extends Component {
     })
   }
   addTodo = () => {
+    console.log(this)
     const { txt } = this.state
     const { addTodo } = this.props
     if (txt.trim()) {
