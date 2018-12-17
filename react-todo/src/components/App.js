@@ -49,7 +49,9 @@ class App extends Component {
   completeTodo = id => {
     const { todos } = this.state
     axios
-      .patch(`http://localhost:3008/todos/${id}`, { completed: true })
+      .patch(`http://localhost:3008/todos/${id}`, {
+        completed: !todos.find(todo => todo.id === id).completed
+      })
       .then(res => {
         // 方法1
         // todos.find(todo => todo.id === id).completed = true

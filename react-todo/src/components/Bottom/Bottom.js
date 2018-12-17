@@ -43,6 +43,9 @@ class Bottom extends Component {
         >
           completed
         </span>
+        {todos.findIndex(todo => todo.completed) !== -1 ? (
+          <span>clear completed</span>
+        ) : null}
       </div>
     )
   }

@@ -2,12 +2,12 @@
   "todos": [
     {
       "todo": "123",
-      "completed": true,
+      "completed": false,
       "id": 1
     },
     {
       "todo": "234",
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {
