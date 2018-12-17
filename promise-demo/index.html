@@ -38,19 +38,6 @@
 
       // 1. 买菜  2.做饭  3.吃
 
-      function step2() {
-        console.log('做饭中')
-        setTimeout(() => {
-          console.log('做饭完毕')
-        }, 1000)
-      }
-      function step3() {
-        console.log('吃饭')
-        setTimeout(() => {
-          console.log('吃完')
-        }, 1000)
-      }
-
       // es6 promise 写法
       // const promise = new Promise((resolve, reject) => {
       // resolve  reject 代表 promise 状态 前者完成  后者失败
@@ -63,17 +50,41 @@
       // })
       // 1.将异步操作写到 promise 的参数函数内
       // 2.使用promise的then方法定义 resolve   then方法的第一个参数指的是就是resolve函数
-      function step1(resolve) {
+
+      function step1(resolve, reject) {
         console.log('买菜中')
         setTimeout(() => {
           console.log('买菜完毕')
           resolve()
         }, 1000)
       }
-      new Promise((resolve, reject) => {
-        step1(resolve)
-      }).then(() => {
-        step2()
+      function step2(resolve, reject) {
+        console.log('做饭中')
+        setTimeout(() => {
+          console.log('做饭完毕')
+          resolve()
+        }, 1000)
+      }
+      function step3(resolve, reject) {
+        console.log('吃饭')
+        setTimeout(() => {
+          console.log('吃完')
+          resolve()
+        }, 1000)
+      }
+      // 写到Promise内的函数会被立即执行
+      new Promise(step1)
+        .then(() => {
+          return new Promise(step2)
+        })
+        .then(() => {
+          return new Promise(step3)
+        })
+      // 多个异步同时开始执行  全部执行完毕之后 做其他操作
+      // all 方法
+      // axiso.get() 就是 promise实例
+      Promise.all([promise1, promise2, promise3]).then(() => {
+        // 所有 promise 执行完毕 后要做事
       })
     </script>
   </body>
