@@ -20,7 +20,12 @@ class App extends Component {
     const { todos, type } = this.state
     const content = todos.length ? (
       <div>
-        <Bottom todos={todos} type={type} changeType={this.changeType} />
+        <Bottom
+          todos={todos}
+          type={type}
+          changeType={this.changeType}
+          delTodo={this.delTodo}
+        />
       </div>
     ) : (
       <div>请添加</div>
@@ -33,6 +38,7 @@ class App extends Component {
           addTodo={this.addTodo}
           completeTodo={this.completeTodo}
           type={type}
+          delTodo={this.delTodo}
         />
         {content}
       </div>
@@ -74,6 +80,14 @@ class App extends Component {
   changeType = type => {
     this.setState({
       type: type
+    })
+  }
+  delTodo = id => {
+    const { todos } = this.state
+    axios.delete(`http://localhost:3008/todos/${id}`).then(res => {
+      this.setState({
+        todos: todos.filter(todo => todo.id !== id)
+      })
     })
   }
 }

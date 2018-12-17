@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class Bottom extends Component {
   render() {
     const { todos, changeType, type } = this.props
-
     const num = todos.filter(todo => !todo.completed).length
     return (
       <div>
@@ -44,10 +43,18 @@ class Bottom extends Component {
           completed
         </span>
         {todos.findIndex(todo => todo.completed) !== -1 ? (
-          <span>clear completed</span>
+          <span onClick={this.clear}>clear completed</span>
         ) : null}
       </div>
     )
+  }
+  clear = () => {
+    const { delTodo, todos } = this.props
+    todos
+      .filter(todo => todo.completed)
+      .forEach(ele => {
+        delTodo(ele.id)
+      })
   }
 }
 

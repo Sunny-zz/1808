@@ -5,7 +5,7 @@ class Todo extends Component {
     txt: ''
   }
   render() {
-    const { todos, completeTodo, type } = this.props
+    const { todos, completeTodo, type, delTodo } = this.props
     const { txt } = this.state
     // const showTodos = todos.filter(todo => {
     //   if (type === 'all') {
@@ -29,11 +29,21 @@ class Todo extends Component {
           <li
             key={todo.id}
             style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-            onClick={() => {
-              completeTodo(todo.id)
-            }}
           >
-            {todo.todo}
+            <span
+              onClick={() => {
+                completeTodo(todo.id)
+              }}
+            >
+              {todo.todo}
+            </span>
+            <button
+              onClick={() => {
+                delTodo(todo.id)
+              }}
+            >
+              delete
+            </button>
           </li>
         ))}
       </ul>
