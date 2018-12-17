@@ -37,13 +37,7 @@
       //   })
 
       // 1. 买菜  2.做饭  3.吃
-      const a = false
-      function step1() {
-        console.log('买菜中')
-        setTimeout(() => {
-          console.log('买菜完毕')
-        }, 1000)
-      }
+
       function step2() {
         console.log('做饭中')
         setTimeout(() => {
@@ -56,7 +50,31 @@
           console.log('吃完')
         }, 1000)
       }
-      const promise = new Promise(function(resolve, reject) {})
+
+      // es6 promise 写法
+      // const promise = new Promise((resolve, reject) => {
+      // resolve  reject 代表 promise 状态 前者完成  后者失败
+      // 异步操作 例如 ajax  setTimeout 等
+      // if(){
+      //   resolve()
+      // }else{
+      //   reject()
+      // }
+      // })
+      // 1.将异步操作写到 promise 的参数函数内
+      // 2.使用promise的then方法定义 resolve   then方法的第一个参数指的是就是resolve函数
+      function step1(resolve) {
+        console.log('买菜中')
+        setTimeout(() => {
+          console.log('买菜完毕')
+          resolve()
+        }, 1000)
+      }
+      new Promise((resolve, reject) => {
+        step1(resolve)
+      }).then(() => {
+        step2()
+      })
     </script>
   </body>
 </html>
