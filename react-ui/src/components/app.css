@@ -1,0 +1,20 @@
+.ant-pagination-item-active a {
+  color: aquamarine;
+}
+.ant-pagination-item-active {
+  border-color: aquamarine;
+}
+
+.ant-pagination-item:focus,
+.ant-pagination-item:hover {
+  transition: all 0.3s;
+  border-color: aquamarine;
+}
+.ant-pagination-item:focus a,
+.ant-pagination-item:hover a {
+  transition: all 0.3s;
+  color: aquamarine;
+}
+.ant-pagination-item {
+  border-radius: 12px;
+}
