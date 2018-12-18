@@ -52,7 +52,7 @@ class Todo extends Component {
     )
     return (
       <div>
-        <input type="text" value={txt} onChange={this.handleInput} />
+        <input type='text' value={txt} onChange={this.handleInput} />
         <button onClick={this.addTodo}>addTodo</button>
         {todoList}
       </div>

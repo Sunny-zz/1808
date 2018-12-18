@@ -1,0 +1,29 @@
+{
+  "name": "react-hello",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.11.2",
+    "babel-plugin-import": "^1.11.0",
+    "react": "^16.6.3",
+    "react-app-rewired": "^1.6.2",
+    "react-dom": "^16.6.3",
+    "react-scripts": "2.1.1"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "serve": "json-server --watch api/db.json -p 3008"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
