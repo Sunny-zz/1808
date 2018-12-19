@@ -1,50 +1,49 @@
 import React, { Component } from 'react'
-import { Pagination, Skeleton } from 'antd'
-import axios from 'axios'
-import { URL } from '../static/url'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 class App extends Component {
   state = {
-    topics: []
-  }
-  componentDidMount() {
-    const url = `${URL}/topics?tab=all&page=1`
-    axios.get(url).then(res => {
-      this.setState({
-        topics: res.data.data
-      })
-    })
-  }
+    data: [
+      {
+        name: 'aa',
+        uv: 20
+      },
+      {
+        name: 'bb',
+        uv: 30
+      },
+      {
+        name: 'cc',
+        uv: 10
+      },
 
+      {
+        name: 'dd',
+        uv: 30
+      },
+      {
+        name: 'ff',
+        uv: 10
+      }
+    ]
+  }
   render() {
-    const { topics } = this.state
-    const content = topics.length ? (
-      <ul>
-        {topics.map(topic => (
-          <li key={topic.id}>{topic.title}</li>
-        ))}
-      </ul>
-    ) : (
-      <Skeleton paragraph={{ rows: 4 }} title={false} />
-    )
+    const { data } = this.state
     return (
       <div>
-        {content}
-        <Pagination
-          defaultCurrent={1}
-          total={3330}
-          pageSize={40}
-          onChange={this.handlePag}
-        />
+        <LineChart
+          width={400}
+          height={400}
+          data={data}
+          margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        >
+          <Line type='monotone' dataKey='uv' stroke='#8884d8' />
+          <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />
+          <XAxis dataKey='name' />
+          <YAxis />
+          <Tooltip />
+        </LineChart>
       </div>
     )
-  }
-  handlePag = page => {
-    const url = `${URL}/topics?tab=all&page=${page}`
-    axios.get(url).then(res => {
-      this.setState({
-        topics: res.data.data
-      })
-    })
   }
 }
 
