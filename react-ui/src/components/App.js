@@ -135,9 +135,12 @@ class App extends Component {
       name,
       per
     }
-    this.setState({
-      showDetail: [...showDetail, newLi]
-    })
+    // find  findIndex    替代  indexOf   作为查找数组中是否有相同的对象
+    if (showDetail.findIndex(e => e.name === newLi.name) === -1) {
+      this.setState({
+        showDetail: [...showDetail, newLi]
+      })
+    }
   }
 }
 
