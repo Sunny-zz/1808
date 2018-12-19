@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  Legend
+} from 'recharts'
 class App extends Component {
   state = {
     data: [
@@ -45,7 +56,12 @@ class App extends Component {
     ]
   }
   render() {
-    const { data } = this.state
+    const { data, data1 } = this.state
+    const newData = data1.map(e => {
+      e.per = parseFloat(e.per)
+      return e
+    })
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
     return (
       <div>
         <LineChart
@@ -66,6 +82,24 @@ class App extends Component {
           <YAxis />
           <Tooltip />
         </LineChart>
+        <PieChart width={500} height={250} style={{ margin: '0 auto' }}>
+          <Pie
+            data={newData}
+            dataKey='per'
+            nameKey='name'
+            cx='140'
+            cy='50%'
+            outerRadius={100}
+            innerRadius={40}
+            label
+            fill='#8884d8'
+          >
+            {newData.map((e, ind) => (
+              <Cell key={`cell-${ind}`} fill={COLORS[ind]} />
+            ))}
+          </Pie>
+          <Legend align='right' layout='vertical' />
+        </PieChart>
       </div>
     )
   }
