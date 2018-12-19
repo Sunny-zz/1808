@@ -53,14 +53,28 @@ class App extends Component {
         name: '10k-15k',
         per: '16.1%'
       }
-    ]
+    ],
+    showDetail: []
   }
   render() {
-    const { data, data1 } = this.state
+    const { data, data1, showDetail } = this.state
     const newData = data1.map(e => {
       e.per = parseFloat(e.per)
       return e
     })
+
+    const RADIAN = Math.PI / 180
+    const renderCustomizedLabel = props => {
+      const { cx, cy, midAngle, innerRadius, outerRadius, index } = props
+      const radius = innerRadius + (outerRadius - innerRadius) + 22
+      const x = cx + radius * Math.cos(-midAngle * RADIAN)
+      const y = cy + radius * Math.sin(-midAngle * RADIAN)
+      return (
+        <text x={x} y={y} fill='#000' textAnchor={x > cx ? 'start' : 'end'}>
+          {newData[index].name}
+        </text>
+      )
+    }
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
     return (
       <div>
@@ -87,21 +101,43 @@ class App extends Component {
             data={newData}
             dataKey='per'
             nameKey='name'
-            cx='140'
+            cx='180'
             cy='50%'
             outerRadius={100}
             innerRadius={40}
-            label
+            // label内的函数 默认会接收一些跟 Pie 相关的 props
+            label={renderCustomizedLabel}
             fill='#8884d8'
+            onClick={this.handlePie}
           >
             {newData.map((e, ind) => (
               <Cell key={`cell-${ind}`} fill={COLORS[ind]} />
             ))}
           </Pie>
           <Legend align='right' layout='vertical' />
+          <Tooltip />
         </PieChart>
+        <div>
+          <ul>
+            {showDetail.map(e => (
+              <li key={e.name}>
+                {e.name}:{e.per}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     )
+  }
+  handlePie = ({ name, per }) => {
+    const { showDetail } = this.state
+    const newLi = {
+      name,
+      per
+    }
+    this.setState({
+      showDetail: [...showDetail, newLi]
+    })
   }
 }
 
