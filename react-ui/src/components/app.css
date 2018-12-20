@@ -1,4 +1,4 @@
-.ant-pagination-item-active a {
+/* .ant-pagination-item-active a {
   color: aquamarine;
 }
 .ant-pagination-item-active {
@@ -17,4 +17,17 @@
 }
 .ant-pagination-item {
   border-radius: 12px;
+} */
+.msg {
+  display: block;
+}
+.message-enter {
+  opacity: 0;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.message-enter-active {
+  opacity: 1;
+  transition: all 3000ms linear;
+  margin-top: 0;
 }
