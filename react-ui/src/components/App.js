@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './app.css'
+import styled from 'styled-components'
+import Button from './Button/Button'
 class App extends Component {
   state = {
     show: false,
@@ -36,19 +38,20 @@ class App extends Component {
                 <CSSTransition key={e.id} timeout={1000} classNames='todo'>
                   <li>
                     {e.txt}{' '}
-                    <button
+                    <Btn
                       onClick={() => {
                         this.delToDo(e.id)
                       }}
                     >
                       删除
-                    </button>
+                    </Btn>
                   </li>
                 </CSSTransition>
               ))}
             </TransitionGroup>
           </ul>
         </div>
+        <Button />
       </div>
     )
   }
@@ -78,3 +81,6 @@ class App extends Component {
 }
 
 export default App
+const Btn = styled.button`
+  color: red;
+`
