@@ -153,3 +153,28 @@ react 项目是单页面应用，要实现页面提转的话需要依赖 react �
 - 在项目下安装 react-router-dom `npm i react-router-dom`
 - 在 App.js 内引入 BrowserRouter 。`import { BroswerRouter } from 'react-router-dom`
   BroswerRouter 是 react-router-dom 包内的一个 react 组件，该组件的作用是
+
+### react 项目部署
+
+##### 部署到 github gh-pages 分支
+
+- 先确保本地项目能启动并且没有什么问题
+- 更改 package.json 内容，添加 homepage
+  ```json
+    "homepage":"https://yourname.github.io/yourapp",
+    "scripts":{
+      "deploy": "gh-pages -d build"
+    }
+  ```
+- 本地安装 gh-pages 包 `npm i gh-pages -D`
+- 本地执行 `npm run build` 打包 react 项目到 build 文件夹
+- 将本地的文件夹初始化为 git 仓库(不添加 README.md)，并且上传
+- 执行 `npm run deploy` 将打包好的项目部署到 gh-pages 分之
+- 查看页面即可访问项目
+- 如果要更新项目的话 先更新本地的服务器代码，然后`npm run build`打包，打包完成之后，先上传到 master 分支，然后使用 `npm run deploy` 更新 gh-pahes 分支
+
+##### 部署到 netlify 免费服务器
+
+- 先确保本地项目能启动并且没有什么问题
+- 将本地的文件夹初始化为 git 仓库(不添加 README.md)，并且上传
+- 到 netlify 网站，选择 git 的某个仓库

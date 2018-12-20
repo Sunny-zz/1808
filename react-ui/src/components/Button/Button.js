@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { primary } from '../../static/color'
+
 class Button extends Component {
   render() {
     return (
