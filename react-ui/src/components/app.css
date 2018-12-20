@@ -31,3 +31,18 @@
   transition: all 3000ms linear;
   margin-top: 0;
 }
+
+.todo-enter {
+  opacity: 0;
+}
+.todo-enter-active {
+  opacity: 1;
+  transition: all 1000ms linear;
+}
+.todo-exit {
+  opacity: 1;
+}
+.todo-exit-active {
+  opacity: 0;
+  transition: all 1000ms linear;
+}
