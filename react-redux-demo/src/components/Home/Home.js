@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import store from '../../store'
 class Home extends Component {
   state = {
     posts: []
@@ -14,6 +15,9 @@ class Home extends Component {
   }
 
   render() {
+    const a = store.getState()
+    console.log(a)
+
     const { posts } = this.state
     const list = posts.length ? (
       <ul>

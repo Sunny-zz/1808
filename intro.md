@@ -178,3 +178,7 @@ react 项目是单页面应用，要实现页面提转的话需要依赖 react �
 - 先确保本地项目能启动并且没有什么问题
 - 将本地的文件夹初始化为 git 仓库(不添加 README.md)，并且上传
 - 到 netlify 网站，选择 git 的某个仓库
+
+###### react-redux-demo 参考地址
+
+[项目文档参考地址](https://www.yuque.com/sunnyzz/react-redux)
