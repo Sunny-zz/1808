@@ -3,6 +3,7 @@ import { BrowserRouter, Link } from 'react-router-dom'
 import Main from './Main/Main'
 import axios from 'axios'
 import store from '../store'
+
 class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:3008/posts').then(res => {

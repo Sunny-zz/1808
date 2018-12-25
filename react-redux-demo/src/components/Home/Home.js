@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
-import store from '../../store'
+import { connect } from 'react-redux'
 class Home extends Component {
   // state = {
   //   posts: []
@@ -16,7 +15,9 @@ class Home extends Component {
 
   render() {
     // 静态获取 store 中的数据 也就是说 store 中的数据变了 并不会重新获取
-    const posts = store.getState()
+    console.log(this.props)
+
+    const { posts } = this.props
     // console.log(a)
     // const { posts } = this.state
     const list = posts.length ? (
@@ -33,5 +34,10 @@ class Home extends Component {
     return <div>{list}</div>
   }
 }
-
-export default Home
+//  mapStateToProps 函数作用是 当该函数传递给 connect 方法的时候里面的参数 state 就会变成 store 中的数据,并且需要返回一个对象，把返回的对象转化为 props 传递给 connect 函数的第二次调用的参数 也就是 Home 组件，这样 Home 组件就可以动态获取 store 中的数据了
+const mapStateToProps = state => {
+  return {
+    posts: state
+  }
+}
+export default connect(mapStateToProps)(Home)
