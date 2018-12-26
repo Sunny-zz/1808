@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 
 class PostBody extends Component {
   render() {
-    return <div>postbody</div>
+    const { post } = this.props
+    return (
+      <article>
+        <h2>{post.title}</h2>
+        <p>{post.body}</p>
+      </article>
+    )
   }
 }
 
