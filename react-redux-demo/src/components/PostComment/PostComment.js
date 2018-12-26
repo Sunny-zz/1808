@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import store from '../../store'
+import store from '../../store/'
 class PostComment extends Component {
   state = {
     comment: ''
@@ -45,7 +45,7 @@ class PostComment extends Component {
 
   addComment = () => {
     const { comment } = this.state
-    const { id } = this.props
+    const { id, addComment } = this.props
 
     const newComment = {
       txt: comment,
@@ -53,7 +53,8 @@ class PostComment extends Component {
     }
     axios.post('http://localhost:3008/comments', newComment).then(res => {
       // 更新 store 内 comments 的内容
-      store.dispatch({ type: 'ADD_COMMENT', comment: res.data })
+      // store.dispatch({ type: 'ADD_COMMENT', comment: res.data })
+      addComment(res.data)
       this.setState({
         comment: ''
       })
