@@ -13,7 +13,16 @@ class PostComment extends Component {
     const content = comments.length ? (
       <ul>
         {comments.map(e => (
-          <li key={e.id}>{e.txt}</li>
+          <li key={e.id}>
+            {e.txt}
+            <button
+              onClick={() => {
+                this.delComment(e.id)
+              }}
+            >
+              删除
+            </button>
+          </li>
         ))}
       </ul>
     ) : (
@@ -48,6 +57,16 @@ class PostComment extends Component {
       this.setState({
         comment: ''
       })
+    })
+  }
+  delComment = id => {
+    // 1.实现网上的删除，数据库中的数据删除
+    // 2.网上的实现了之后才能操作本地的 store,本地操作实现有两种方案
+    // a. 直接对本地数据进行修改(能用就用)
+    // b. 重新请求网络的数据更新本地
+    axios.delete(`http://localhost:3008/comments/${id}`).then(() => {
+      // 更新本地
+      store.dispatch({ type: 'DEL_COMMENT', id })
     })
   }
 }

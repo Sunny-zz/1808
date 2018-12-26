@@ -6,6 +6,8 @@ const comments = (state = [], action) => {
       return action.comments
     case 'ADD_COMMENT':
       return [...state, action.comment]
+    case 'DEL_COMMENT':
+      return state.filter(e => e.id !== action.id)
     default:
       return state
   }
