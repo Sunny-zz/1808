@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PostBody from '../PostBody/PostBody'
 import PostComment from '../PostComment/PostComment'
 import axios from 'axios'
-import store from '../../store'
+import store from '../../store/'
 class Post extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
@@ -19,7 +19,7 @@ class Post extends Component {
     const article = post ? (
       <div>
         <PostBody post={post} />
-        <PostComment comments={comments} />
+        <PostComment comments={comments} id={id} />
       </div>
     ) : (
       '请稍等'
@@ -28,10 +28,12 @@ class Post extends Component {
     return <div>{article}</div>
   }
 }
+
 const mapStateToProps = state => {
   return {
     posts: state.posts,
     comments: state.comments
   }
 }
+
 export default connect(mapStateToProps)(Post)
