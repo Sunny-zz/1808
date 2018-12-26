@@ -5,6 +5,7 @@ import PostComment from '../PostComment/PostComment'
 import axios from 'axios'
 import store from '../../store/'
 import { addComment } from '../../actions'
+import { bindActionCreators } from 'redux'
 class Post extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
@@ -46,11 +47,19 @@ const mapStateToProps = state => {
 // 3.怎么添加通过 mapDispatchToProps 将action创建函数添加上dispatch
 // 例子给 addComment 函数添加 dispatch， 写法如下
 //  addComment 中就会带 dispatch 功能将该方法传递给子组件执行就会自动发出对应的 action
-const mapDispatchToProps = {
-  addComment
-}
 
+// mapDisPatchToProps 的初始写法 需要从 redux 包中引入 bindActionCreators 方法将addComment创建函数添加 dispatch 功能
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addComment: bindActionCreators(addComment, dispatch)
+//   }
+// }
+// mapDisPatchToProps 的简写 直接写成一个对象，将需要添加 dispatch 的action 函数当做属性
+// const mapDispatchToProps = {
+//   addComment
+// }
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { addComment }
 )(Post)
