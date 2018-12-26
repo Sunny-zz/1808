@@ -1,26 +1,18 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import PostBody from '../PostBody/PostBody'
+import PostComment from '../PostComment/PostComment'
 
 class Post extends Component {
-  state = {
-    post: null
-  }
-  componentDidMount() {
-    const { id } = this.props.match.params
-    axios.get(`http://localhost:3008/posts/${id}`).then(res => {
-      this.setState({
-        post: res.data
-      })
-    })
-  }
-
   render() {
-    const { post } = this.state
+    const { posts, match } = this.props
+    const { id } = match.params
+    const post = posts.find(e => e.id.toString() === id)
     const article = post ? (
-      <article>
-        <h2>{post.title}</h2>
-        <p>{post.body}</p>
-      </article>
+      <div>
+        <PostBody />
+        <PostComment />
+      </div>
     ) : (
       '请稍等'
     )
@@ -28,5 +20,9 @@ class Post extends Component {
     return <div>{article}</div>
   }
 }
-
-export default Post
+const mapStateToProps = state => {
+  return {
+    posts: state
+  }
+}
+export default connect(mapStateToProps)(Post)

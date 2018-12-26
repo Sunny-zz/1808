@@ -182,3 +182,9 @@ react 项目是单页面应用，要实现页面提转的话需要依赖 react �
 ###### react-redux-demo 参考地址
 
 [项目文档参考地址](https://www.yuque.com/sunnyzz/react-redux)
+
+### react 的 redux
+
+1. 创建 store
+   - 安装 redux `npm i redux`
+   - 在 src 下新建 store/index.js 存储 store
