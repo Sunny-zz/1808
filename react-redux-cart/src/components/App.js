@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import Cart from './Cart'
-
+import { connect } from 'react-redux'
+import { getProducts } from '../actions/'
 class App extends Component {
+  componentDidMount() {
+    const { getProducts } = this.props
+    getProducts()
+  }
+
   render() {
     return (
       <div>
@@ -12,4 +18,7 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect(
+  null,
+  { getProducts }
+)(App)
