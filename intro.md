@@ -188,3 +188,12 @@ react 项目是单页面应用，要实现页面提转的话需要依赖 react �
 1. 创建 store
    - 安装 redux `npm i redux`
    - 在 src 下新建 store/index.js 存储 store
+
+#### redux 流程
+
+1. 创建 store createStore(reducer) reducer 怎么写
+2. 获取 store 内容 Provider 组件 ---> connect 方法 mstp
+3. 修改 store dispatch ---> action ---> reducer
+
+**优化 把组件内的 action 以及异步请求 都封装到 action 创建函数内 mdtp ，redux-thunk**
+

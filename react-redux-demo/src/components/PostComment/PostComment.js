@@ -63,7 +63,6 @@ class PostComment extends Component {
     // 2.网上的实现了之后才能操作本地的 store,本地操作实现有两种方案
     // a. 直接对本地数据进行修改(能用就用)
     // b. 重新请求网络的数据更新本地
-
     const { delComment } = this.props
     delComment(id)
   }
