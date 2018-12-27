@@ -10,3 +10,15 @@ export const getProducts = () => {
     })
   }
 }
+export const addToCart = (id, newInventory) => {
+  return dispatch => {
+    axios
+      .patch(`http://localhost:3008/products/${id}`, newInventory)
+      .then(() => {
+        dispatch({
+          type: 'ADD_TO_CART',
+          id
+        })
+      })
+  }
+}
