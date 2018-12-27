@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PostBody from '../PostBody/PostBody'
 import PostComment from '../PostComment/PostComment'
-import axios from 'axios'
 
 import { addComment, getComments, delComment } from '../../actions'
 // import { bindActionCreators } from 'redux'
@@ -10,10 +9,7 @@ class Post extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
     const { getComments } = this.props
-    axios.get(`http://localhost:3008/comments?postId=${id}`).then(res => {
-      // store.dispatch({ type: 'GET_COMMENTS', comments: res.data })
-      getComments(res.data)
-    })
+    getComments(id)
   }
 
   render() {

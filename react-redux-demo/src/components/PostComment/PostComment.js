@@ -50,11 +50,9 @@ class PostComment extends Component {
       txt: comment,
       postId: id
     }
-    // 异步 action
-    axios.post('http://localhost:3008/comments', newComment).then(res => {
-      // 更新 store 内 comments 的内容
-      // store.dispatch({ type: 'ADD_COMMENT', comment: res.data })
-      addComment(res.data)
+    // 更新 store 内 comments 的内容
+    // store.dispatch({ type: 'ADD_COMMENT', comment: res.data })
+    addComment(newComment, () => {
       this.setState({
         comment: ''
       })
@@ -65,11 +63,9 @@ class PostComment extends Component {
     // 2.网上的实现了之后才能操作本地的 store,本地操作实现有两种方案
     // a. 直接对本地数据进行修改(能用就用)
     // b. 重新请求网络的数据更新本地
-    axios.delete(`http://localhost:3008/comments/${id}`).then(() => {
-      // 更新本地
-      const { delComment } = this.props
-      delComment(id)
-    })
+
+    const { delComment } = this.props
+    delComment(id)
   }
 }
 
