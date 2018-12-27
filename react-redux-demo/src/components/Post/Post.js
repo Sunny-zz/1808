@@ -3,26 +3,33 @@ import { connect } from 'react-redux'
 import PostBody from '../PostBody/PostBody'
 import PostComment from '../PostComment/PostComment'
 import axios from 'axios'
-import store from '../../store/'
-import { addComment } from '../../actions'
-import { bindActionCreators } from 'redux'
+
+import { addComment, getComments, delComment } from '../../actions'
+// import { bindActionCreators } from 'redux'
 class Post extends Component {
   componentDidMount() {
     const { id } = this.props.match.params
+    const { getComments } = this.props
     axios.get(`http://localhost:3008/comments?postId=${id}`).then(res => {
-      store.dispatch({ type: 'GET_COMMENTS', comments: res.data })
+      // store.dispatch({ type: 'GET_COMMENTS', comments: res.data })
+      getComments(res.data)
     })
   }
 
   render() {
-    const { posts, match, comments, addComment } = this.props
+    const { posts, match, comments, addComment, delComment } = this.props
 
     const { id } = match.params
     const post = posts.find(e => e.id.toString() === id)
     const article = post ? (
       <div>
         <PostBody post={post} />
-        <PostComment comments={comments} id={id} addComment={addComment} />
+        <PostComment
+          comments={comments}
+          id={id}
+          addComment={addComment}
+          delComment={delComment}
+        />
       </div>
     ) : (
       '请稍等'
@@ -61,5 +68,5 @@ const mapStateToProps = state => {
 // }
 export default connect(
   mapStateToProps,
-  { addComment }
+  { addComment, getComments, delComment }
 )(Post)

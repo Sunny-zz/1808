@@ -5,3 +5,21 @@ export const addComment = comment => {
     comment
   }
 }
+export const getPosts = posts => {
+  return {
+    type: 'GET_POSTS',
+    posts
+  }
+}
+export const getComments = comments => {
+  return {
+    type: 'GET_COMMENTS',
+    comments
+  }
+}
+export const delComment = id => {
+  return {
+    type: 'DEL_COMMENT',
+    id
+  }
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import store from '../../store/'
 class PostComment extends Component {
   state = {
     comment: ''
@@ -67,7 +66,8 @@ class PostComment extends Component {
     // b. 重新请求网络的数据更新本地
     axios.delete(`http://localhost:3008/comments/${id}`).then(() => {
       // 更新本地
-      store.dispatch({ type: 'DEL_COMMENT', id })
+      const { delComment } = this.props
+      delComment(id)
     })
   }
 }
