@@ -50,6 +50,7 @@ class PostComment extends Component {
       txt: comment,
       postId: id
     }
+    // 异步 action
     axios.post('http://localhost:3008/comments', newComment).then(res => {
       // 更新 store 内 comments 的内容
       // store.dispatch({ type: 'ADD_COMMENT', comment: res.data })
