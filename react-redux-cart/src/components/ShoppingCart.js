@@ -21,7 +21,7 @@ class ShoppingCart extends Component {
                 <span>{product.price} x </span>
                 <button
                   onClick={() => {
-                    subProductQuantity(e)
+                    subProductQuantity(e, { inventory: product.inventory + 1 })
                   }}
                 >
                   -
@@ -29,7 +29,11 @@ class ShoppingCart extends Component {
                 <span>{cart.quantityById[e]}</span>
                 <button
                   onClick={() => {
-                    addToCart(e, { inventory: product.inventory - 1 })
+                    if (product.inventory > 0) {
+                      addToCart(e, { inventory: product.inventory - 1 })
+                    } else {
+                      alert('你买不起了')
+                    }
                   }}
                 >
                   +

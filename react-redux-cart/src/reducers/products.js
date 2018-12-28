@@ -7,6 +7,13 @@ const products = (state = [], action) => {
       const newState = [...state]
       newState.find(e => e.id === action.id).inventory--
       return newState
+    case 'SUB_PRODUCT_QUANTITY':
+      return state.map(e => {
+        if (e.id === action.id) {
+          e.inventory++
+        }
+        return e
+      })
     default:
       return state
   }

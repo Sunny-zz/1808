@@ -29,9 +29,15 @@ export const checkoutCart = () => {
   }
 }
 
-export const subProductQuantity = id => {
-  return {
-    type: 'SUB_PRODUCT_QUANTITY',
-    id
+export const subProductQuantity = (id, newInventory) => {
+  return dispatch => {
+    axios
+      .patch(`http://localhost:3008/products/${id}`, newInventory)
+      .then(() => {
+        dispatch({
+          type: 'SUB_PRODUCT_QUANTITY',
+          id
+        })
+      })
   }
 }
