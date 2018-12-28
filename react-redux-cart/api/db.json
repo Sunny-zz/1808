@@ -4,19 +4,19 @@
       "id": "165ffhg7",
       "productName": "华为 v20",
       "price": 5999,
-      "inventory": 5
+      "inventory": -5
     },
     {
       "id": "yhy6757",
       "productName": "小米 max 4",
       "price": 6999,
-      "inventory": 12
+      "inventory": 25
     },
     {
       "id": "kih6771",
       "productName": "一加6T 迈凯伦版",
       "price": 3999,
-      "inventory": 10
+      "inventory": 20
     }
   ]
 }

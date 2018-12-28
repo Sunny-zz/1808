@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 
 class ShoppingCart extends Component {
   render() {
-    const { cart, products } = this.props
+    const {
+      cart,
+      products,
+      checkoutCart,
+      addToCart,
+      subProductQuantity
+    } = this.props
     // {pid:[],byid:{}}   [{},{},{}]
     const cartContent =
       cart.productId.length && products.length ? (
@@ -11,10 +17,23 @@ class ShoppingCart extends Component {
             const product = products.find(product => product.id === e)
             return (
               <li key={e}>
-                {product.productName}{' '}
-                <span>
-                  {product.price} x <span>{cart.quantityById[e]}</span>
-                </span>
+                <span>{product.productName} </span>
+                <span>{product.price} x </span>
+                <button
+                  onClick={() => {
+                    subProductQuantity(e)
+                  }}
+                >
+                  -
+                </button>
+                <span>{cart.quantityById[e]}</span>
+                <button
+                  onClick={() => {
+                    addToCart(e, { inventory: product.inventory - 1 })
+                  }}
+                >
+                  +
+                </button>
               </li>
             )
           })}
@@ -26,19 +45,25 @@ class ShoppingCart extends Component {
     const total =
       cart.productId.length && products.length
         ? cart.productId.reduce(
-            (num, e) =>
-              num + products.find(i => i.id === e).price * cart.quantityById[e],
+            (num, i) =>
+              num + products.find(e => e.id === i).price * cart.quantityById[i],
             0
           )
         : 0
-
     return (
       <div>
         <h2>shopping-cart</h2>
         {cartContent}
         <span>$total {total}</span>
         <br />
-        <button disabled={cart.length ? false : true}>Checkout</button>
+        <button
+          onClick={() => {
+            checkoutCart()
+          }}
+          disabled={cart.productId.length ? false : true}
+        >
+          Checkout
+        </button>
       </div>
     )
   }

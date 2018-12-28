@@ -22,3 +22,16 @@ export const addToCart = (id, newInventory) => {
       })
   }
 }
+
+export const checkoutCart = () => {
+  return {
+    type: 'CHECKOUT_CART'
+  }
+}
+
+export const subProductQuantity = id => {
+  return {
+    type: 'SUB_PRODUCT_QUANTITY',
+    id
+  }
+}
