@@ -2,16 +2,19 @@ import React, { Component } from 'react'
 
 class ShoppingCart extends Component {
   render() {
-    const { cart } = this.props
-    const cartContent = cart.length ? (
-      <ul>
-        {cart.map(e => (
-          <li key={e.id}>{e.productName}</li>
-        ))}
-      </ul>
-    ) : (
-      <div>Please add some products to cart.</div>
-    )
+    const { cart, products } = this.props
+    // {pid:[],byid:{}}   [{},{},{}]
+    const cartContent =
+      cart.productId.length && products.length ? (
+        <ul>
+          {cart.productId.map(e => {
+            const product = products.find(product => product.id === e)
+            return <li key={e}>{product.productName}</li>
+          })}
+        </ul>
+      ) : (
+        <div>Please add some products to cart.</div>
+      )
     return (
       <div>
         <h2>shopping-cart</h2>

@@ -9,7 +9,7 @@ class Cart extends Component {
     return (
       <div>
         <ProductList products={products} addToCart={addToCart} />
-        <ShoppingCart cart={cart} />
+        <ShoppingCart cart={cart} products={products} />
       </div>
     )
   }
