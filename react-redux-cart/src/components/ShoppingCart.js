@@ -9,7 +9,14 @@ class ShoppingCart extends Component {
         <ul>
           {cart.productId.map(e => {
             const product = products.find(product => product.id === e)
-            return <li key={e}>{product.productName}</li>
+            return (
+              <li key={e}>
+                {product.productName}
+                <span>
+                  {product.price} x <span>{cart.quantityById[e]}</span>
+                </span>
+              </li>
+            )
           })}
         </ul>
       ) : (
