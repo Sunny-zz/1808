@@ -1,3 +1,5 @@
+import { ADD_TO_CART, SUB_PRODUCT_QUANTITY, CHECKOUT_CART } from '../constants/'
+
 const cart = (
   state = {
     productId: [],
@@ -7,7 +9,7 @@ const cart = (
 ) => {
   const { type } = action
   switch (type) {
-    case 'ADD_TO_CART':
+    case ADD_TO_CART:
       const { id } = action
       const newState = { ...state }
       if (newState.productId.indexOf(id) === -1) {
@@ -19,12 +21,12 @@ const cart = (
         newState.quantityById[id]++
       }
       return newState
-    case 'CHECKOUT_CART':
+    case CHECKOUT_CART:
       return {
         productId: [],
         quantityById: {}
       }
-    case 'SUB_PRODUCT_QUANTITY':
+    case SUB_PRODUCT_QUANTITY:
       const newCart = { ...state }
       // 看当前购物车中的商品个数
 
