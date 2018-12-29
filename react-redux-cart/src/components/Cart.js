@@ -3,6 +3,7 @@ import ProductList from './ProductList'
 import { connect } from 'react-redux'
 import { addToCart, checkoutCart, subProductQuantity } from '../actions/'
 import ShoppingCart from './ShoppingCart'
+import './cart.scss'
 class Cart extends Component {
   render() {
     const {
@@ -13,7 +14,7 @@ class Cart extends Component {
       subProductQuantity
     } = this.props
     return (
-      <div>
+      <div className='shopping-cart'>
         <ProductList products={products} addToCart={addToCart} />
         <ShoppingCart
           cart={cart}
