@@ -1,3 +1,19 @@
 {
-  "todos": [{ "id": "sasd2", "txt": "kasjdg asg " }]
+  "todos": [
+    {
+      "txt": "123",
+      "isCompleted": false,
+      "id": 1
+    },
+    {
+      "txt": "345",
+      "isCompleted": true,
+      "id": 2
+    },
+    {
+      "txt": "3452312",
+      "isCompleted": true,
+      "id": 3
+    }
+  ]
 }

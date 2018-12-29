@@ -5,19 +5,15 @@ import Footer from './Footer'
 
 class Todo extends Component {
   componentDidMount() {
-    console.log(this.props.getTodos)
-
     this.props.getTodos()
   }
   render() {
-    const { todos, getTodos } = this.props
-    console.log(this.props)
-
+    const { todos, addTodo, completeTodo, filter, changeType } = this.props
     return (
       <div>
-        <Input />
-        <TodoList todos={todos} />
-        <Footer />
+        <Input addTodo={addTodo} />
+        <TodoList todos={todos} completeTodo={completeTodo} filter={filter} />
+        <Footer changeType={changeType} />
       </div>
     )
   }

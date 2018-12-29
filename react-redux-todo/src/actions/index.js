@@ -8,3 +8,26 @@ export const getTodos = () => dispatch => {
     })
   })
 }
+export const addTodo = (newTodo, clearInput) => dispatch => {
+  axios.post('http://localhost:3008/todos', newTodo).then(res => {
+    clearInput()
+    dispatch({
+      type: actionTypes.ADD_TODO,
+      newTodo: res.data
+    })
+  })
+}
+export const completeTodo = (id, newIsCompleted) => dispatch => {
+  axios.patch(`http://localhost:3008/todos/${id}`, newIsCompleted).then(() => {
+    dispatch({
+      type: actionTypes.COMPLETE_TODO,
+      id
+    })
+  })
+}
+export const changeType = type => {
+  return {
+    type: actionTypes.CHANGE_TYPE,
+    newType: type
+  }
+}

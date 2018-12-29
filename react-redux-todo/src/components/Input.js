@@ -13,13 +13,26 @@ class Input extends Component {
           value={todo}
           onChange={e =>
             this.setState({
-              state: e.target.value
+              todo: e.target.value
             })
           }
         />
-        <button>添加 todo</button>
+        <button onClick={this.addTodo}>添加 todo</button>
       </div>
     )
+  }
+  addTodo = () => {
+    const { todo } = this.state
+    if (todo.trim()) {
+      const { addTodo } = this.props
+      const newTodo = {
+        txt: todo,
+        isCompleted: false
+      }
+      addTodo(newTodo, () => {
+        this.setState({ todo: '' })
+      })
+    }
   }
 }
 
