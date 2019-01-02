@@ -31,3 +31,4 @@ export const changeType = type => {
     newType: type
   }
 }
+axios.delete(`http://localhost:3008/todos?id=1`)

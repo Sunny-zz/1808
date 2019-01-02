@@ -1,0 +1,17 @@
+.home {
+  .tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .tabs a {
+    text-align: center;
+    color: #666;
+    border-bottom: 2px solid #fff;
+    padding: 5px 0;
+  }
+  .tabs a.active {
+    color: #000;
+    border-bottom: 2px solid teal;
+  }
+}
