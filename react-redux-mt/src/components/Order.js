@@ -11,7 +11,7 @@ class Order extends Component {
     const { goods } = this.props
     if (goods.length) {
       // 定义一个全局变量 Bscroll
-      this.Bscroll = new Bscroll(this.foodListWrapper)
+      this.Bscroll = new Bscroll(this.foodListWrapper, {})
     }
   }
 
@@ -21,8 +21,19 @@ class Order extends Component {
     const goodsContent = goods.length ? (
       <div className='goods'>
         <div className='food-tabs'>
-          {goods.map(e => (
-            <div key={e.id}>{e.name}</div>
+          {goods.map((e, index) => (
+            <div
+              onClick={() => {
+                // this.Bscroll.scrollToElement(
+                //   document.querySelectorAll('.food-list>div')[index],
+                //   500
+                // )
+                this.Bscroll.scrollToElement(this[`foodList${index}`], 500)
+              }}
+              key={e.id}
+            >
+              {e.name}
+            </div>
           ))}
         </div>
         <div
@@ -30,8 +41,8 @@ class Order extends Component {
           ref={listWrapper => (this.foodListWrapper = listWrapper)}
         >
           <div className='food-list'>
-            {goods.map(e => (
-              <div key={e.id}>
+            {goods.map((e, index) => (
+              <div ref={ele => (this[`foodList${index}`] = ele)} key={e.id}>
                 <h3>{e.name}</h3>
                 {e.foods.map(e => (
                   <div className='food' key={e.id}>
