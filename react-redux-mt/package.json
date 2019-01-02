@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.13.2",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-app-rewire-sass-modules": "^1.1.7",

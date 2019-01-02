@@ -1,0 +1,29 @@
+.goods {
+  display: flex;
+  .food-tabs {
+    width: 70px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    > div {
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 16px;
+    }
+  }
+  .food-list-wrapper {
+    height: calc(100vh - 50px - 36px);
+    flex-grow: 1;
+    overflow: auto;
+    .food-list > div {
+      > h3 {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+      .food {
+        display: flex;
+        margin-bottom: 22px;
+      }
+    }
+  }
+}
