@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Order.scss'
 import Bscroll from 'better-scroll'
-
+import { getTopArr } from '../selectors'
 class Order extends Component {
   state = {
     activeTab: '热销榜'
@@ -17,7 +17,28 @@ class Order extends Component {
       // 定义一个全局变量 Bscroll
       this.isHaveScroll = true
       this.Bscroll = new Bscroll(this.foodListWrapper, {
-        mouseWheel: true
+        mouseWheel: true,
+        probeType: 3
+      })
+      const { goods } = this.props
+      const topArr = getTopArr(goods)
+      this.Bscroll.on('scroll', ({ y }) => {
+        // 原生js 的 offsetTop 可以获取元素距离父级顶部的距离来计算什么时候更新 state
+        // const arr = [0, 572, 1114, 1567, 2100]
+        // 通过 goods 数组 创建一个新数组 每一个类别的div 距离父级顶部的距离
+        // if (-y > 476) {
+        //   this.setState({
+        //     activeTab: '优惠榜'
+        //   })
+        // }
+
+        for (let i = 0; i < topArr.length; i++) {
+          if (-y >= topArr[i] && -y < topArr[i + 1]) {
+            this.setState({
+              activeTab: i === 0 ? '热销榜' : '优惠榜'
+            })
+          }
+        }
       })
     }
   }
@@ -26,6 +47,7 @@ class Order extends Component {
   // 在 List 组件中使用 better-scroll 创建滚动条
   // 我想在兄弟组件内使用另个兄弟组件内的全局变量
   // 在 父组件中 给 List 组件写个 ref 属性，给组件写 ref 相当于获取组件
+  //
   render() {
     const { goods } = this.props
     const { activeTab } = this.state
@@ -43,6 +65,8 @@ class Order extends Component {
                 this.setState({
                   activeTab: e.name
                 })
+                console.log(1)
+
                 this.Bscroll.scrollToElement(this[`foodList${index}`], 500)
               }}
               key={e.id}
