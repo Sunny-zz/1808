@@ -1,0 +1,7 @@
+import * as actionTYpes from '../constants/actionTypes'
+import axios from 'axios'
+export const getGoods = () => dispatch => {
+  axios.get('http://localhost:3008/goods').then(res => {
+    dispatch({ type: actionTYpes.GET_GOODS, goods: res.data })
+  })
+}
