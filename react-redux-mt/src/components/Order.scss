@@ -10,6 +10,9 @@
       line-height: 50px;
       font-size: 16px;
     }
+    > .active {
+      color: red;
+    }
   }
   .food-list-wrapper {
     height: calc(100vh - 50px - 36px);

@@ -4,6 +4,10 @@ import Head from './Head'
 import Home from './Home'
 import '../constants/gloable.css'
 class App extends Component {
+  // componentDidMount() {
+  //   console.log(this.el)
+  // }
+
   render() {
     return (
       <Router>
