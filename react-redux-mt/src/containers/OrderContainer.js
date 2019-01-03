@@ -1,13 +1,14 @@
 import React from 'react'
 import Order from '../components/Order'
 import { connect } from 'react-redux'
-import { getGoods } from '../actions/'
+import { getGoods, addToCart } from '../actions/'
 const OrderContainer = props => <Order {...props} />
 
 const mapStateToProps = state => ({
-  goods: state.goods
+  goods: state.goods,
+  cart: state.cart
 })
 export default connect(
   mapStateToProps,
-  { getGoods }
+  { getGoods, addToCart }
 )(OrderContainer)

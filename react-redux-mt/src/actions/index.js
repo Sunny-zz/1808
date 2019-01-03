@@ -5,3 +5,8 @@ export const getGoods = () => dispatch => {
     dispatch({ type: actionTYpes.GET_GOODS, goods: res.data })
   })
 }
+
+export const addToCart = id => ({
+  type: actionTYpes.ADD_TO_CART,
+  id
+})

@@ -18,7 +18,8 @@ class Order extends Component {
       this.isHaveScroll = true
       this.Bscroll = new Bscroll(this.foodListWrapper, {
         mouseWheel: true,
-        probeType: 3
+        probeType: 3,
+        click: true
       })
       const { goods } = this.props
       const topArr = getTopArr(goods)
@@ -31,11 +32,17 @@ class Order extends Component {
         //     activeTab: '优惠榜'
         //   })
         // }
+        // console.log(-y)
 
         for (let i = 0; i < topArr.length; i++) {
           if (-y >= topArr[i] && -y < topArr[i + 1]) {
             this.setState({
-              activeTab: i === 0 ? '热销榜' : '优惠榜'
+              activeTab: i === 0 ? '热销榜' : i === 1 ? '优惠榜' : '精品榜'
+            })
+          }
+          if (i === 2 && -y >= topArr[i]) {
+            this.setState({
+              activeTab: '精品榜'
             })
           }
         }
@@ -65,9 +72,8 @@ class Order extends Component {
                 this.setState({
                   activeTab: e.name
                 })
-                console.log(1)
 
-                this.Bscroll.scrollToElement(this[`foodList${index}`], 500)
+                this.Bscroll.scrollToElement(this[`foodList${index}`], 1000)
               }}
               key={e.id}
             >
@@ -89,6 +95,9 @@ class Order extends Component {
                     <div className='food-info'>
                       <h4>{e.name}</h4>
                       <span>{e.price}</span>
+                      <button>-</button>
+                      <span>0</span>
+                      <button>+</button>
                     </div>
                   </div>
                 ))}
