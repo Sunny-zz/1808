@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from '../constants/actionTypes'
+import { ADD_TO_CART, DEL_TO_CART } from '../constants/actionTypes'
 const cart = (state = { foodsId: [], quantityById: {} }, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -13,6 +13,16 @@ const cart = (state = { foodsId: [], quantityById: {} }, action) => {
         newState.quantityById[id]++
       }
       return newState
+
+    case DEL_TO_CART:
+      const newState1 = { ...state }
+      if (newState1.quantityById[action.id] === 1) {
+        delete newState1.quantityById[action.id]
+        newState1.foodsId.splice(newState1.foodsId.indexOf(action.id), 1)
+      } else {
+        newState1.quantityById[action.id]--
+      }
+      return newState1
     default:
       return state
   }

@@ -56,7 +56,7 @@ class Order extends Component {
   // 在 父组件中 给 List 组件写个 ref 属性，给组件写 ref 相当于获取组件
   //
   render() {
-    const { goods, cart, addToCart } = this.props
+    const { goods, cart, addToCart, delToCart } = this.props
     console.log(cart)
 
     const { activeTab } = this.state
@@ -98,7 +98,13 @@ class Order extends Component {
                       <h4>{e.name}</h4>
                       <span>{e.price}</span>
                       {cart.foodsId.indexOf(e.id) !== -1 ? (
-                        <button>-</button>
+                        <button
+                          onClick={() => {
+                            delToCart(e.id)
+                          }}
+                        >
+                          -
+                        </button>
                       ) : (
                         ''
                       )}
