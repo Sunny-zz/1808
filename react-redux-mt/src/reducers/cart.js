@@ -8,6 +8,7 @@ const cart = (state = { foodsId: [], quantityById: {} }, action) => {
       const newState = { ...state }
       if (newState.foodsId.indexOf(id) === -1) {
         newState.foodsId.push(id)
+        newState.quantityById[id] = 1
       } else {
         newState.quantityById[id]++
       }
