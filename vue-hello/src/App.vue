@@ -12,6 +12,14 @@
     <div :class="{hide: !show,box:true}"></div>
     <!-- <div :class="['box',show?'':'hide']"></div> -->
     <Button></Button>
+    <h2 v-if="ok">hello vue</h2>
+    <!-- <h2 v-else-if="ok">hello vue</h2> -->
+    <h2 v-else>hello react</h2>
+    <ul v-if="posts.length">
+      <li v-for="post in posts" :key="post.id">{{post.title}}</li>
+    </ul>
+    <div v-else>请稍等。。。</div>
+    <div v-for="value in userInfo" :key="value">{{value}}</div>
   </div>
 </template>
 
@@ -37,7 +45,24 @@ export default {
   data: () => ({
     num: 10,
     title: "number",
-    show: true
+    show: true,
+    ok: false,
+    posts: [
+      {
+        id: 1,
+        title: "vue",
+        txt: "ajkdsg kajsg askdh kasdh "
+      },
+      {
+        id: 2,
+        title: "vuex",
+        txt: "917253871258315 "
+      }
+    ],
+    userInfo: {
+      name: "小花儿",
+      age: 18
+    }
   }),
   methods: {
     // 如果 methods 下的方法想要访问或修改 相关组件下的属性时 需要将方法定义成普通函数不能定义成箭头函数
