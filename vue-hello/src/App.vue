@@ -41,6 +41,8 @@
     <button @click="submit">提交</button>
     <label for>同意</label>
     <input type="checkbox" v-model="agree" true-value="20" false-value="10">
+    <Pic/>
+    <div class="pic"></div>
   </div>
 </template>
 
@@ -58,10 +60,12 @@
 // vue 的事件绑定 可以赋值为 一步操作   @click = 'num ++' 或 @click ='add(1)'
 
 import Button from "./components/Button";
+import Pic from "./components/Pic";
 export default {
   name: "app",
   components: {
-    Button
+    Button,
+    Pic
   },
   data: () => ({
     num: 10,
@@ -119,7 +123,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .box {
   width: 200px;
   height: 200px;
