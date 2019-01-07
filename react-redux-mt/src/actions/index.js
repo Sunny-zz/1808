@@ -1,9 +1,13 @@
 import * as actionTYpes from '../constants/actionTypes'
 import axios from 'axios'
 export const getGoods = () => dispatch => {
-  axios.get('http://localhost:3008/goods').then(res => {
-    dispatch({ type: actionTYpes.GET_GOODS, goods: res.data })
-  })
+  axios
+    .get(
+      'https://raw.githubusercontent.com/Sunny-zz/1808/master/react-redux-mt/api/db.json'
+    )
+    .then(res => {
+      dispatch({ type: actionTYpes.GET_GOODS, goods: res.data.goods })
+    })
 }
 
 export const addToCart = id => ({

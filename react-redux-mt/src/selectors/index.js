@@ -23,6 +23,5 @@ export const getAllNum = cart => {
   const allNum = cart.foodsId.reduce((num, e) => {
     return num + cart.quantityById[e]
   }, 0)
-
   return allNum
 }
