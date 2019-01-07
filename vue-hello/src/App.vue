@@ -20,6 +20,27 @@
     </ul>
     <div v-else>请稍等。。。</div>
     <div v-for="value in userInfo" :key="value">{{value}}</div>
+    <label for>姓名:</label>
+    <input type="text" v-model.trim="user.username">
+    <label for>年龄:</label>
+    <input type="text" v-model.number="user.userage">
+    <button @click="submit">提交</button>
+    <h4>你喜欢的水果有哪些？</h4>
+    <div>
+      <label for>榴莲</label>
+      <input v-model="fruits" value="榴莲" type="checkbox">
+      <label for>杨梅</label>
+      <input v-model="fruits" value="杨梅" type="checkbox">
+      <label for>草莓</label>
+      <input v-model="fruits" value="草莓" type="checkbox">
+      <label for>牛油果</label>
+      <input v-model="fruits" value="牛油果" type="checkbox">
+      <label for>蛇皮果</label>
+      <input v-model="fruits" value="蛇皮果" type="checkbox">
+    </div>
+    <button @click="submit">提交</button>
+    <label for>同意</label>
+    <input type="checkbox" v-model="agree" true-value="20" false-value="10">
   </div>
 </template>
 
@@ -62,7 +83,13 @@ export default {
     userInfo: {
       name: "小花儿",
       age: 18
-    }
+    },
+    user: {
+      username: "",
+      userage: ""
+    },
+    fruits: [],
+    agree: "10"
   }),
   methods: {
     // 如果 methods 下的方法想要访问或修改 相关组件下的属性时 需要将方法定义成普通函数不能定义成箭头函数
@@ -82,6 +109,11 @@ export default {
     },
     qieHuan() {
       this.$data.show = !this.$data.show;
+    },
+    submit() {
+      // console.log(this.$data.user);
+      // console.log(this.$data.fruits);
+      console.log(this.$data.agree);
     }
   }
 };
