@@ -6,8 +6,11 @@
     <button @click="changeNum('+')">+</button>
     <!-- <button @click="num ++">+</button> -->
     <br>
-    <button>切换</button>
-    <div class="box" :style="{display: show ? 'block' : 'none'}"></div>
+    <button @click="qieHuan">切换</button>
+    <!-- <div class="box" :style="{display: show ? 'block' : 'none'}" ></div> -->
+    <!-- <div :class="`box ${show?'': 'hide'}`"></div> -->
+    <div :class="{hide: !show,box:true}"></div>
+    <!-- <div :class="['box',show?'':'hide']"></div> -->
     <Button></Button>
   </div>
 </template>
@@ -34,7 +37,7 @@ export default {
   data: () => ({
     num: 10,
     title: "number",
-    show: false
+    show: true
   }),
   methods: {
     // 如果 methods 下的方法想要访问或修改 相关组件下的属性时 需要将方法定义成普通函数不能定义成箭头函数
@@ -51,6 +54,9 @@ export default {
       } else {
         this.$data.num--;
       }
+    },
+    qieHuan() {
+      this.$data.show = !this.$data.show;
     }
   }
 };
@@ -61,5 +67,8 @@ export default {
   width: 200px;
   height: 200px;
   background: teal;
+}
+.hide {
+  display: none;
 }
 </style>
