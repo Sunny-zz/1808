@@ -1,5 +1,5 @@
 <template>
-  <div class="pic">
+  <div @mouseenter="stop" @mouseleave="start" class="pic">
     <img :class="{show: index === 0 }" src="../assets/1.jpg" alt>
     <img :class="{show: index === 1 }" src="../assets/2.jpg" alt>
     <img :class="{show: index === 2 }" src="../assets/3.jpg" alt>
@@ -24,8 +24,23 @@ export default {
   //   }
   // }
   mounted(){
-    console.log(1);
-    this.index = 3
+    // console.log(1);
+    this.running = setInterval(this.run,1000) 
+  },
+  methods: {
+    run() {
+      if( this.index <3){
+        this.index ++
+      }else{
+        this.index = 0
+      }
+    },
+    stop(){
+      clearInterval(this.running)
+    },
+    start(){
+      this.running = setInterval(this.run,1000) 
+    }
   }
 };
 </script>
@@ -41,7 +56,7 @@ export default {
   top: 0;
   bottom: 0;
   opacity: 0;
-  transition: opacity 0.75s linear;
+  transition: opacity 1s linear;
 
 }
 .pic > img.show{
