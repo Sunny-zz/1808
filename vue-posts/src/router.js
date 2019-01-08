@@ -10,7 +10,7 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/post',
+      path: '/post/:id',
       component: Post
     }
   ],
