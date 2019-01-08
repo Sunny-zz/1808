@@ -9,8 +9,14 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "home",
+  created() {
+    axios.get("http://localhost:3008/posts").then(res => {
+      this.posts = res.data;
+    });
+  },
   data: () => ({
     posts: []
   })

@@ -3,12 +3,12 @@
     {
       "id": 1,
       "title": "vue",
-      "boxy": "vue 好 vue 棒"
+      "body": "vue 好 vue 棒"
     },
     {
       "id": 2,
       "title": "react",
-      "boxy": "react 好 react 棒"
+      "body": "react 好 react 棒"
     }
   ]
 }
