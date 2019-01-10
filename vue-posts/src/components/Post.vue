@@ -1,36 +1,25 @@
 <template>
   <div>
     <div v-if="post">
-      <h1>{{post.title}}</h1>
-      <p>{{post.body}}</p>
-    </div>
-    <div v-else>请稍等。。。。</div>
-    <div>
-      <input v-model="commentTxt" type="text">
-      <button @click="addComment">评论</button>
-      <ul v-if="comments.length">
-        <li v-for="comment in reverseComments" :key="comment.id">{{comment.txt}}</li>
-      </ul>
-      <div v-else>评论为空</div>
+      <PostBody :post="post" :comments="comments"/>
+      <PostComment :comments="comments" :addComment="addComment"/>
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
+import PostBody from "./PostBody";
+import PostComment from "./PostComment";
 // 路由的 props
 export default {
   name: "post",
   data: () => ({
     post: null,
-    comments: [],
-    commentTxt: ""
+    comments: []
   }),
-  computed: {
-    // 计算的数据
-    // computed 对象下的每一个属性都是一个计算数据，值要设置成一个 普通函数，并且需要返回一个值，这个返回的值就提供给组件使用。
-    reverseComments() {
-      return [...this.comments].reverse();
-    }
+  components: {
+    PostBody,
+    PostComment
   },
   created() {
     // 请求数据
@@ -47,15 +36,18 @@ export default {
     });
   },
   methods: {
-    addComment() {
+    addComment(commentTxt, clearInput) {
+      console.log(2);
+
       const { id } = this.$route.params;
       const newComment = {
-        txt: this.commentTxt,
+        txt: commentTxt,
         postId: id
       };
       axios.post(`http://localhost:3008/comments`, newComment).then(res => {
         this.comments.push(res.data);
-        this.commentTxt = "";
+        // this.commentTxt = "";
+        clearInput();
       });
     }
   }
