@@ -2,7 +2,7 @@
   <div>
     <div v-if="post">
       <PostBody :post="post" :comments="comments"/>
-      <PostComment :comments="comments" :addComment="addComment"/>
+      <PostComment :comments="comments" @addComment="addComment"/>
     </div>
   </div>
 </template>

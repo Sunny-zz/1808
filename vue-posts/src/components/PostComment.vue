@@ -14,10 +14,10 @@ export default {
   data: () => ({
     commentTxt: ""
   }),
-  props: ["comments", "addComment"],
+  props: ["comments"],
   methods: {
     handleClick() {
-      this.addComment(this.commentTxt, this.clearInput);
+      this.$emit("addComment", this.commentTxt, this.clearInput);
       // $emit
     },
     clearInput() {
