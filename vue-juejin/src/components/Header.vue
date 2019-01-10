@@ -4,9 +4,15 @@
       <img src="../assets/logo.png" alt>
     </div>
     <ul>
-      <li>首页</li>
-      <li>动态</li>
-      <li>话题</li>
+      <li>
+        <router-link active-class="active" to="/" exact>首页</router-link>
+      </li>
+      <li>
+        <router-link active-class="active" to="/activities">动态</router-link>
+      </li>
+      <li>
+        <router-link active-class="active" to="/topics">话题</router-link>
+      </li>
     </ul>
   </header>
 </template>
@@ -39,6 +45,12 @@ header {
       width: 70px;
       line-height: 70px;
       text-align: center;
+      a {
+        color: #71777c;
+      }
+      a.active {
+        color: #007fff;
+      }
     }
   }
 }
