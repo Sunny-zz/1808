@@ -12,18 +12,18 @@
 import axios from "axios";
 export default {
   name: "postlist",
-  // created() {
-  //   this.getPosts(this.tab);
-  // },
-
-  watch: {
-    tab: {
-      handler() {
-        this.getPosts(this.tab);
-      },
-      immediate: true
-    }
+  created() {
+    this.getPosts(this.tab);
   },
+  // watch: {
+  //   tab: {
+  //     handler() {
+
+  //       this.getPosts(this.tab);
+  //     },
+  //     immediate: true
+  //   }
+  // },
   data: () => ({
     posts: []
   }),
@@ -40,7 +40,9 @@ export default {
   methods: {
     getPosts(tab) {
       axios.get(`http://localhost:3008/posts?tab=${tab}`).then(res => {
-        this.posts = res.data;
+        setTimeout(() => {
+          this.posts = res.data;
+        }, 500);
       });
     }
   }

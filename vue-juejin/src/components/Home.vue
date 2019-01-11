@@ -16,7 +16,8 @@
         </li>
       </ul>
     </div>
-    <router-view></router-view>
+    <!-- 给 路由 一个唯一的 key 值 当匹配到动态路由时也会重新创建组件 -->
+    <router-view :key="$route.path"></router-view>
   </div>
 </template>
 <script>
