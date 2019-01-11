@@ -7,7 +7,8 @@
     </div>
     <ul>
       <li>
-        <router-link active-class="active" to="/" exact>首页</router-link>
+        <!-- /  /welcome/xxx -->
+        <router-link :active-class=" isHome  ? 'active': ''" to="/">首页</router-link>
       </li>
       <li>
         <router-link active-class="active" to="/activities">动态</router-link>
@@ -20,7 +21,13 @@
 </template>
 <script>
 export default {
-  name: "heade"
+  name: "heade",
+  computed: {
+    isHome() {
+      const { path } = this.$route;
+      return path === "/" || path.indexOf("welcome") !== -1;
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
