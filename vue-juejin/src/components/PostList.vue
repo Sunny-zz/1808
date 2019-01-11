@@ -5,7 +5,7 @@
         <router-link :to="`/post/${post.id}`">{{post.title}}</router-link>
       </li>
     </ul>
-    <div>列表为空</div>
+    <!-- <div>列表为空</div> -->
   </div>
   <div v-else>请稍等...</div>
 </template>
@@ -14,18 +14,19 @@ import axios from "axios";
 export default {
   name: "postlist",
   created() {
-    if (this.isSearch) {
-      // 查询的请求
-      console.log(this.$route.query.query);
-      // 如果没有对应的查询请求，我们就拿全部，再筛选
-    } else {
-      this.getPosts(this.tab);
-    }
+    // if (this.isSearch) {
+    //   // 查询的请求
+    //   console.log(this.$route.query.query);
+
+    //   // 如果没有对应的查询请求，我们就拿全部，再筛选
+    // } else {
+    //   this.getPosts(this.tab);
+    // }
+    this.getPosts();
   },
   // watch: {
   //   tab: {
   //     handler() {
-
   //       this.getPosts(this.tab);
   //     },
   //     immediate: true
@@ -48,8 +49,13 @@ export default {
     }
   },
   methods: {
-    getPosts(tab) {
-      axios.get(`http://localhost:3008/posts?tab=${tab}`).then(res => {
+    getPosts() {
+      const query = this.isSearch
+        ? `title_like=${this.$route.query.query}`
+        : `tab=${this.tab}`;
+      console.log(query);
+
+      axios.get(`http://localhost:3008/posts?${query}`).then(res => {
         setTimeout(() => {
           this.posts = res.data;
         }, 500);
