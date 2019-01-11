@@ -11,9 +11,14 @@ const router = new VueRouter({
       path: '/',
       component: Home,
       children: [
+        // 子路由内的 以 /  开头代表的是 根路径，所以子路由不需要以 / 开头
         {
           //      /          /welcome/:type
-          path: '/',
+          path: '',
+          component: PostList
+        },
+        {
+          path: 'welcome/:type',
           component: PostList
         }
       ]

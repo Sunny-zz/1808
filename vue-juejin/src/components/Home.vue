@@ -25,5 +25,29 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.home-head {
+  display: flex;
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+  ul {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    margin-left: 100px;
+    li {
+      margin-right: 20px;
+      line-height: 60px;
+      a {
+        color: #71777c;
+      }
+      a.router-link-exact-active {
+        color: #007fff;
+      }
+    }
+  }
+}
+</style>
 
 
