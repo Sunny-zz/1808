@@ -12,12 +12,16 @@
 import axios from "axios";
 export default {
   name: "postlist",
-  created() {
-    this.getPosts("recommend");
-  },
+  // created() {
+  //   this.getPosts(this.tab);
+  // },
+
   watch: {
-    tab() {
-      this.getPosts(this.tab);
+    tab: {
+      handler() {
+        this.getPosts(this.tab);
+      },
+      immediate: true
     }
   },
   data: () => ({
