@@ -5,6 +5,7 @@
         <router-link :to="`/post/${post.id}`">{{post.title}}</router-link>
       </li>
     </ul>
+    <div>列表为空</div>
   </div>
   <div v-else>请稍等...</div>
 </template>
@@ -13,7 +14,13 @@ import axios from "axios";
 export default {
   name: "postlist",
   created() {
-    this.getPosts(this.tab);
+    if (this.isSearch) {
+      // 查询的请求
+      console.log(this.$route.query.query);
+      // 如果没有对应的查询请求，我们就拿全部，再筛选
+    } else {
+      this.getPosts(this.tab);
+    }
   },
   // watch: {
   //   tab: {
@@ -35,6 +42,9 @@ export default {
       // return path === "/" ? "recommend" : path.replace("/welcome/", "");
       const { type } = this.$route.params;
       return type ? type : "recommend";
+    },
+    isSearch() {
+      return this.$route.path.indexOf("search") !== -1;
     }
   },
   methods: {

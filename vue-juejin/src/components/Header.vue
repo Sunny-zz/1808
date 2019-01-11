@@ -17,15 +17,25 @@
         <router-link active-class="active" to="/topics">话题</router-link>
       </li>
     </ul>
+    <input class="search" type="text" placeholder="搜索" v-model.trim="searchValue">
+    <button :disabled="searchValue? false : true" @click="search">搜索</button>
   </header>
 </template>
 <script>
 export default {
   name: "heade",
+  data: () => ({
+    searchValue: ""
+  }),
   computed: {
     isHome() {
       const { path } = this.$route;
       return path === "/" || path.indexOf("welcome") !== -1;
+    }
+  },
+  methods: {
+    search() {
+      this.$router.push(`/search?query=${this.searchValue}`);
     }
   }
 };
@@ -61,6 +71,15 @@ header {
         color: #007fff;
       }
     }
+  }
+  .search {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 20px;
+  }
+  button {
+    height: 30px;
   }
 }
 </style>

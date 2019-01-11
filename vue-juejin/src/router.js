@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Activities from './components/Activities'
 import Topics from './components/Topics'
 import PostList from './components/PostList'
+import Post from './components/Post'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -30,6 +31,14 @@ const router = new VueRouter({
     {
       path: '/topics',
       component: Topics
+    },
+    {
+      path: '/post/:id',
+      component: Post
+    },
+    {
+      path: '/search',
+      component: PostList
     }
   ],
   mode: 'history'
