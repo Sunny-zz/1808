@@ -15,16 +15,22 @@ export default {
   created() {
     this.getPosts("recommend");
   },
+  watch: {
+    tab() {
+      this.getPosts(this.tab);
+    }
+  },
   data: () => ({
     posts: []
   }),
-  beforeUpdate() {
-    console.log(this.path);
-    // this.getPosts();
-  },
   computed: {
-    path() {
-      return this.$route.path;
+    tab() {
+      // recommend   frontend  backend  android
+      // /   /welcome/frontend  /welcome/backend  /welcome/android
+      // const { path } = this.$route;
+      // return path === "/" ? "recommend" : path.replace("/welcome/", "");
+      const { type } = this.$route.params;
+      return type ? type : "recommend";
     }
   },
   methods: {
