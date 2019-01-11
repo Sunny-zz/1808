@@ -24,14 +24,17 @@ export default {
     // }
     this.getPosts();
   },
-  // watch: {
-  //   tab: {
-  //     handler() {
-  //       this.getPosts(this.tab);
-  //     },
-  //     immediate: true
-  //   }
-  // },
+  watch: {
+    // tab: {
+    //   handler() {
+    //     this.getPosts(this.tab);
+    //   },
+    //   immediate: true
+    // }
+    "$route.query.query"() {
+      this.getPosts();
+    }
+  },
   data: () => ({
     posts: []
   }),
