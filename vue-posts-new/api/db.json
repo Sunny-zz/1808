@@ -10,5 +10,12 @@
       "title": "vue",
       "body": "vue vue vue"
     }
+  ],
+  "comments": [
+    {
+      "id": 123,
+      "text": "react 666",
+      "postId": 1
+    }
   ]
 }
