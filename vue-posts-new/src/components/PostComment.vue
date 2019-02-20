@@ -18,10 +18,10 @@ export default {
   }),
   methods: {
     createComment() {
-      const clearInput = function() {
-        this.commentText = "";
-      };
-      this.addComment(this.commentText, clearInput);
+      this.addComment(this.commentText, this.clearInput);
+    },
+    clearInput() {
+      this.commentText = "";
     }
   }
 };

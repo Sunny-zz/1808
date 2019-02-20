@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>count: {{$store.state.count}}</div>
     <PostBody :postId="postId" :commentNum="commentNum"/>
     <PostComment :comments="comments" :addComment="addComment"/>
   </div>
@@ -19,6 +20,7 @@ export default {
   },
   created() {
     // data  computed
+
     axios
       .get(`http://localhost:3008/comments?postId=${this.postId}`)
       .then(res => {
@@ -41,7 +43,6 @@ export default {
       };
       axios.post(`http://localhost:3008/comments`, newComment).then(res => {
         console.log(res.data);
-
         this.comments.push(res.data);
         clearInput();
       });
