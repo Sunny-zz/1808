@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div v-if="post">
-      <h2>{{post.title}}</h2>
-      <p>{{post.body}}</p>
-    </div>
-    <div v-else>稍等</div>
+    <PostBody :postId="postId"/>
     <div>
       <h3>评论</h3>
       <ul v-if="comments.length">
@@ -16,17 +12,17 @@
 </template>
 <script>
 import axios from "axios";
+import PostBody from "./PostBody";
 export default {
   name: "post",
   data: () => ({
-    post: null,
     comments: []
   }),
+  components: {
+    PostBody
+  },
   created() {
     // data  computed
-    axios.get(`http://localhost:3008/posts/${this.postId}`).then(res => {
-      this.post = res.data;
-    });
     axios
       .get(`http://localhost:3008/comments?postId=${this.postId}`)
       .then(res => {
