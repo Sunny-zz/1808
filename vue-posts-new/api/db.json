@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "react",
+      "body": "react react react"
+    },
+    {
+      "id": 2,
+      "title": "vue",
+      "body": "vue vue vue"
+    }
+  ]
+}
