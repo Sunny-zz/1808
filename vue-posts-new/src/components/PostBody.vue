@@ -2,6 +2,7 @@
   <div v-if="post">
     <h2>{{post.title}}</h2>
     <p>{{post.body}}</p>
+    <span>评论数：{{commentNum}}</span>
   </div>
   <div v-else>稍等。。。</div>
 </template>
@@ -12,7 +13,7 @@ export default {
   data: () => ({
     post: null
   }),
-  props: ["postId"],
+  props: ["postId", "commentNum"],
   created() {
     // data  computed
     axios.get(`http://localhost:3008/posts/${this.postId}`).then(res => {
