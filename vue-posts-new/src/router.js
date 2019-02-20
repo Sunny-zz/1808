@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from './components/Home'
+import Post from './components/Post'
 // 给vue 加载路由功能
 Vue.use(VueRouter)
 
@@ -10,6 +11,10 @@ const route = new VueRouter({
     {
       component: Home,
       path: '/'
+    },
+    {
+      component: Post,
+      path: '/post/:id'
     }
   ],
   mode: 'history'
