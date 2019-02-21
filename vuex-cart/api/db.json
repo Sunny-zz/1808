@@ -1,61 +1,17 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "react",
-      "body": "react react react"
-    },
+  "products": [
+    { "id": 1, "title": "iPad 4 Mini", "price": 500.01, "inventory": 20 },
     {
       "id": 2,
-      "title": "vue",
-      "body": "vue vue vue"
-    }
-  ],
-  "comments": [
-    {
-      "id": 123,
-      "text": "react 666",
-      "postId": 1
+      "title": "H&M T-Shirt White",
+      "price": 10.99,
+      "inventory": 10
     },
     {
-      "text": "123",
-      "postId": "2",
-      "id": 125
-    },
-    {
-      "text": "345",
-      "postId": "2",
-      "id": 126
-    },
-    {
-      "text": "3456",
-      "postId": "1",
-      "id": 127
-    },
-    {
-      "text": "567",
-      "postId": "2",
-      "id": 128
-    },
-    {
-      "text": "86876856875",
-      "postId": "2",
-      "id": 129
-    },
-    {
-      "text": "876八十一点多",
-      "postId": "2",
-      "id": 130
-    },
-    {
-      "text": "uuuuuuu",
-      "postId": "1",
-      "id": 131
-    },
-    {
-      "text": "987987128937 别无语吧一点",
-      "postId": "2",
-      "id": 132
+      "id": 3,
+      "title": "Charli XCX - Sucker CD",
+      "price": 19.99,
+      "inventory": 50
     }
   ]
 }
