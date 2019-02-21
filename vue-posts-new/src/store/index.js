@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import posts from './posts'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   //  state 数据
-  state: {
-    // count: 10
-    posts: [],
-    comments: []
+  // state: {
+  //   // count: 10
+  //   comments: []
+  // },
+  modules: {
+    posts
   },
   // mutation 函数 提供修改 state 的方法，函数的第一个参数就是 state
   mutations: {
@@ -16,9 +19,7 @@ const store = new Vuex.Store({
     // add(state, n) {
     //   state.count += n
     // }
-    getPosts(state, posts) {
-      state.posts = posts
-    },
+
     getComments(state, comments) {
       state.comments = comments
     },
@@ -34,11 +35,7 @@ const store = new Vuex.Store({
     // add({ commit }, n) {
     //   commit('add', n)
     // }
-    getPosts({ commit }) {
-      axios.get('http://localhost:3008/posts').then(res => {
-        commit('getPosts', res.data)
-      })
-    },
+
     getComments({ commit }, postId) {
       axios.get(`http://localhost:3008/comments?postId=${postId}`).then(res => {
         commit('getComments', res.data)

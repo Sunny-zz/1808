@@ -19,7 +19,7 @@ export default {
     //   return this.$store.state.count;
     // }
     posts() {
-      return this.$store.state.posts;
+      return this.$store.state.posts.posts;
     }
   },
   methods: {
