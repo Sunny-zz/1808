@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PostBody :postId="postId" :commentNum="commentNum"/>
+    <PostBody :postId="postId"/>
     <PostComment :comments="comments" :postId="postId"/>
   </div>
 </template>
@@ -22,9 +22,6 @@ export default {
     },
     comments() {
       return this.$store.state.comments.comments;
-    },
-    commentNum() {
-      return this.comments.length;
     }
   }
 };

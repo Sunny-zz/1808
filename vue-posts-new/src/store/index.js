@@ -10,6 +10,7 @@ const store = new Vuex.Store({
   //   // count: 10
   //   comments: []
   // },
+  // 不管是哪一个模块的action或mutation 都是全局的。
   modules: {
     posts,
     comments

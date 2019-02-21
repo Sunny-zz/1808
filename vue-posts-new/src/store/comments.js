@@ -23,6 +23,13 @@ const comments = {
         clearInput()
       })
     }
+  },
+  // getters 和 computed 一个意思
+  getters: {
+    // getter 函数第一个参数接受的是局部的状态，模块自己的状态
+    commentNum(state) {
+      return state.comments.length
+    }
   }
 }
 export default comments
