@@ -21,6 +21,9 @@ const store = new Vuex.Store({
     },
     getComments(state, comments) {
       state.comments = comments
+    },
+    addComment(state, newComment) {
+      state.comments.push(newComment)
     }
   },
   // action 函数 用来发出 mutations，函数的第一个参数是 context，我们需要 context 对象下的 commit 方法来发出 mutation，action和mutation函数名相同也没问题,只有 action 函数内能执行异步操作(ajax)
@@ -39,6 +42,12 @@ const store = new Vuex.Store({
     getComments({ commit }, postId) {
       axios.get(`http://localhost:3008/comments?postId=${postId}`).then(res => {
         commit('getComments', res.data)
+      })
+    },
+    addComment({ commit }, { newComment, clearInput }) {
+      axios.post(`http://localhost:3008/comments`, newComment).then(res => {
+        commit('addComment', res.data)
+        clearInput()
       })
     }
   }

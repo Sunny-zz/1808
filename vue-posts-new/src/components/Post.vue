@@ -1,7 +1,7 @@
 <template>
   <div>
     <PostBody :postId="postId" :commentNum="commentNum"/>
-    <PostComment :comments="comments" :addComment="addComment"/>
+    <PostComment :comments="comments" :postId="postId"/>
   </div>
 </template>
 <script>
@@ -25,19 +25,6 @@ export default {
     },
     commentNum() {
       return this.comments.length;
-    }
-  },
-  methods: {
-    addComment(commentText, clearInput) {
-      const newComment = {
-        text: commentText,
-        postId: this.postId
-      };
-      axios.post(`http://localhost:3008/comments`, newComment).then(res => {
-        console.log(res.data);
-        this.comments.push(res.data);
-        clearInput();
-      });
     }
   }
 };

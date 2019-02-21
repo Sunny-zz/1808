@@ -12,13 +12,21 @@
 <script>
 export default {
   name: "postcomment",
-  props: ["comments", "addComment"],
+  props: ["comments", "postId"],
   data: () => ({
     commentText: ""
   }),
   methods: {
     createComment() {
-      this.addComment(this.commentText, this.clearInput);
+      const newComment = {
+        text: this.commentText,
+        postId: this.postId
+      };
+      // dispatch 和 commit 只能传递一个载荷数据,想传递多个数据请使用对象形式
+      this.$store.dispatch("addComment", {
+        newComment,
+        clearInput: this.clearInput
+      });
     },
     clearInput() {
       this.commentText = "";
