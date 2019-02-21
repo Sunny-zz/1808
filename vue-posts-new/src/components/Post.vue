@@ -21,7 +21,7 @@ export default {
       return this.$route.params.id;
     },
     comments() {
-      return this.$store.state.comments;
+      return this.$store.state.comments.comments;
     },
     commentNum() {
       return this.comments.length;
