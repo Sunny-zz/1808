@@ -9,3 +9,4 @@ new Vue({
   router,
   store
 }).$mount('#app')
+// 添加了store 之后 vue 的所有组件内就可以使用 $store.state 访问store的数据了,组件内也可以使用 $store 下的方法 dispatch  commit

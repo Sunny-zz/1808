@@ -1,35 +1,27 @@
 <template>
   <div>
-    <div>count: {{$store.state.count}}</div>
     <PostBody :postId="postId" :commentNum="commentNum"/>
     <PostComment :comments="comments" :addComment="addComment"/>
   </div>
 </template>
 <script>
-import axios from "axios";
 import PostBody from "./PostBody";
 import PostComment from "./PostComment";
 export default {
   name: "post",
-  data: () => ({
-    comments: []
-  }),
   components: {
     PostBody,
     PostComment
   },
   created() {
-    // data  computed
-
-    axios
-      .get(`http://localhost:3008/comments?postId=${this.postId}`)
-      .then(res => {
-        this.comments = res.data;
-      });
+    this.$store.dispatch("getComments", this.postId);
   },
   computed: {
     postId() {
       return this.$route.params.id;
+    },
+    comments() {
+      return this.$store.state.comments;
     },
     commentNum() {
       return this.comments.length;
