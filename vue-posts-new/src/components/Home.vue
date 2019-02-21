@@ -17,19 +17,26 @@ import { mapState } from "vuex";
 export default {
   name: "home",
 
-  computed:
-    // count() {
-    //   return this.$store.state.count;
-    // }
-    // posts() {
-    //   return this.$store.state.posts.posts;
-    // }
-    // mapState({
+  computed: {
+    ...mapState(["posts"])
+    // ...mapState({
     //   posts: state => state.posts.posts,
     //   a: state => state.posts.a,
     //   b: state => state.posts.b
-    // }),
-    mapState(["posts"]),
+    // })
+    // 局部的 computed
+  },
+  // count() {
+  //   return this.$store.state.count;
+  // }
+  // posts() {
+  //   return this.$store.state.posts.posts;
+  // }
+  // mapState({
+  //   posts: state => state.posts.posts,
+  //   a: state => state.posts.a,
+  //   b: state => state.posts.b
+  // }),
   methods: {
     // addCount() {
     //   // 修改 store 的 count --->action---->mutation ----> state
