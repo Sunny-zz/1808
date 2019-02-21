@@ -1,7 +1,9 @@
 import axios from 'axios'
 const posts = {
   state: {
-    posts: []
+    posts: [],
+    a: 10,
+    b: 20
   },
   mutations: {
     // 模块内的 mutation 函数的第一个参数接收的是局部状态，也就是说该模块自己的state

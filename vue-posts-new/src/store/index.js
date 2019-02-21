@@ -5,6 +5,8 @@ import comments from './comments'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+  // 在非发布环境下启用严格模式
+  strict: process.env.NODE_ENV !== 'production',
   //  state 数据
   // state: {
   //   // count: 10

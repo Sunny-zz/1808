@@ -11,17 +11,20 @@ import axios from "axios";
 export default {
   name: "postbody",
   props: ["postId"],
-  // created() {
-  //   // data  computed
-  //   axios.get(`http://localhost:3008/posts/${this.postId}`).then(res => {
-  //     this.post = res.data;
-  //   });
-  //   console.log(this.$store);
-  // }
-  computed: {
-    post() {
-      return this.$store.state.posts.posts.find(e => e.id == this.postId);
-    }
+  data: () => ({
+    post: null
+  }),
+  created() {
+    // data  computed
+    axios.get(`http://localhost:3008/posts/${this.postId}`).then(res => {
+      this.post = res.data;
+    });
   }
+  // computed: {
+  //   post() {
+  //     //
+  //     return this.$store.state.posts.posts.find(e => e.id == this.postId);
+  //   }
+  // }
 };
 </script>

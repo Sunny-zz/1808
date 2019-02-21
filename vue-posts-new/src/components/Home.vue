@@ -2,8 +2,10 @@
   <div>
     <!-- <div>count:{{count}}</div> -->
     <!-- <button @click="addCount">+5</button> -->
-    <ul v-if="posts.length">
-      <li v-for="post in posts" :key="post.id">
+    <div>{{posts.a}}</div>
+    <div>{{posts.b}}</div>
+    <ul v-if="posts.posts.length">
+      <li v-for="post in posts.posts" :key="post.id">
         <router-link :to="`/post/${post.id}`">{{post.title}}</router-link>
       </li>
     </ul>
@@ -11,17 +13,23 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "home",
 
-  computed: {
+  computed:
     // count() {
     //   return this.$store.state.count;
     // }
-    posts() {
-      return this.$store.state.posts.posts;
-    }
-  },
+    // posts() {
+    //   return this.$store.state.posts.posts;
+    // }
+    // mapState({
+    //   posts: state => state.posts.posts,
+    //   a: state => state.posts.a,
+    //   b: state => state.posts.b
+    // }),
+    mapState(["posts"]),
   methods: {
     // addCount() {
     //   // 修改 store 的 count --->action---->mutation ----> state
