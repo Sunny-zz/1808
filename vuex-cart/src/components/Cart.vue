@@ -1,12 +1,13 @@
 <template>
   <div>
-    <ul>
+    <transition-group tag="ul" name="fade">
       <li v-for="product in cartProducts" :key="product.id">
         <span>{{product.title}}</span> -
         <span>${{product.price}}</span> *
         <span>{{quantityById[product.id]}}</span>
       </li>
-    </ul>
+    </transition-group>
+
     <div>total: $ {{total}}</div>
   </div>
 </template>
@@ -31,3 +32,27 @@ export default {
   }
 };
 </script>
+<style scoped>
+.fade-enter-active {
+  transition: all 0.5s;
+}
+.fade-enter {
+  transform: translateX(200px);
+  opacity: 0;
+}
+/* @keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-enter-active {
+  animation: bounce-in 0.5s;
+} */
+</style>
+
