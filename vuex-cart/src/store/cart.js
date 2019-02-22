@@ -1,13 +1,22 @@
 const cart = {
   state: {
-    quantityById: {
-      '1': 4,
-      '3': 2
-    },
-    cartProductsId: [1, 3]
+    quantityById: {},
+    cartProductsId: []
   },
-  getters: {
-    total(state, getters, rootState) {}
+  mutations: {
+    addToCart(state, productId) {
+      if (state.cartProductsId.indexOf(productId) === -1) {
+        state.cartProductsId.push(productId)
+        state.quantityById[productId] = 1
+      } else {
+        state.quantityById[productId]++
+      }
+    }
+  },
+  actions: {
+    addToCart({ commit }, productId) {
+      commit('addToCart', productId)
+    }
   }
 }
 export default cart

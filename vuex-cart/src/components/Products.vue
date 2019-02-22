@@ -6,7 +6,7 @@
           <span>{{product.title}}</span> -
           <span>${{product.price}}</span>
         </div>
-        <button>add to cart</button>
+        <button @click="addToCart(product.id)">add to cart</button>
       </li>
     </ul>
   </div>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     // 这个mapActions生成了一个 getProducts函数 并且该函数自带 dispatch 功能
-    ...mapActions(["getProducts"])
+    ...mapActions(["getProducts", "addToCart"])
   }
 };
 </script>
