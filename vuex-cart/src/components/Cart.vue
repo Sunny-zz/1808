@@ -7,7 +7,7 @@
         <span>{{quantityById[product.id]}}</span>
       </li>
     </ul>
-    <div>{{quantityById}}</div>
+    <div>total: $ {{total}}</div>
   </div>
 </template>
 <script>
@@ -17,13 +17,15 @@ export default {
   computed: {
     ...mapState({
       cartProducts(state) {
-        console.log(1);
         return state.products.all.filter(
           product => state.cart.cartProductsId.indexOf(product.id) !== -1
         );
       },
       quantityById(state) {
         return state.cart.quantityById;
+      },
+      total() {
+        return this.$store.getters.total.toFixed(2);
       }
     })
   }

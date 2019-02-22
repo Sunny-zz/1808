@@ -6,7 +6,11 @@
           <span>{{product.title}}</span> -
           <span>${{product.price}}</span>
         </div>
-        <button @click="addToCart(product.id)">add to cart</button>
+        <button
+          @click="addToCart(product.id)"
+          :disabled="quantityById[product.id] === product.inventory? true : false"
+        >add to cart</button>
+        <div>数量：{{quantityById[product.id]}}</div>
       </li>
     </ul>
   </div>
@@ -20,7 +24,8 @@ export default {
   },
   computed: {
     ...mapState({
-      products: state => state.products.all
+      products: state => state.products.all,
+      quantityById: state => state.cart.quantityById
     })
   },
   methods: {

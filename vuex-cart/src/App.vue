@@ -2,6 +2,7 @@
   <div>
     <h1>Vuex cart</h1>
     <Products/>
+    <hr>
     <Cart/>
   </div>
 </template>
