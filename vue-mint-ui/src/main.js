@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import { Tabbar, TabItem } from 'mint-ui'
+import { Tabbar, TabItem, Loadmore } from 'mint-ui'
 
+Vue.component(Loadmore.name, Loadmore)
 Vue.component(Tabbar.name, Tabbar)
 Vue.component(TabItem.name, TabItem)
 Vue.config.productionTip = false

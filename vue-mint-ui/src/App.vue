@@ -33,7 +33,8 @@ export default {
   // }
   watch: {
     selected() {
-      this.$router.history.push(`/${this.selected}`);
+      const url = this.selected === "home" ? "/" : `/${this.selected}`;
+      this.$router.history.push(url);
     }
   }
 };
@@ -42,6 +43,9 @@ export default {
 <style >
 body {
   margin: 0;
+}
+.mint-tabbar {
+  position: fixed;
 }
 .mint-tabbar > .mint-tab-item.is-selected {
   background-color: #eaeaea;
