@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>我是第{{$route.params.id}}篇文章页</h3>
+    {{$store.state.counter}}
   </div>
 </template>
 <script>

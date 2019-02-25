@@ -4,8 +4,8 @@
       <Logo/>
       <h1 class="title">nuxt-hello</h1>
       <hr>
-      <span>counter: {{counter}}</span>
-      <button @click="counter++">counter++</button>
+      <span>counter: {{$store.state.counter}}</span>
+      <button @click="add">counter++</button>
       <br>
       <hr>
       <nuxt-link to="/user">去 user 页</nuxt-link>
@@ -24,11 +24,13 @@
 import Logo from "~/components/Logo.vue";
 
 export default {
-  data: () => ({
-    counter: 10
-  }),
   components: {
     Logo
+  },
+  methods: {
+    add() {
+      this.$store.dispatch("getCounter");
+    }
   }
 };
 </script>
