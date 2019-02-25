@@ -7,6 +7,7 @@
       bottomPullText
       bottomDropText="加载更多..."
       :bottom-all-loaded="allLoaded"
+      class="load"
     >
       <ul class="list">
         <li v-for="num in arr" :key="num">{{num}}</li>
@@ -28,7 +29,7 @@ export default {
       setTimeout(() => {
         this.arr.push(9, 10, 11, 12, 13);
         // 如果数据全部更新完毕了
-        // this.allLoaded = true;
+        this.allLoaded = true;
         this.$refs.loadmore.onBottomLoaded();
       }, 1000);
     }
@@ -36,9 +37,6 @@ export default {
 };
 </script>
 <style>
-.home-wrap {
-  flex-grow: 1;
-}
 ul.list {
   list-style: none;
   padding: 0;
@@ -50,6 +48,11 @@ ul.list {
   font-size: 20px;
   line-height: 60px;
   border-bottom: 1px solid #ccc;
+}
+.load {
+  /* calc 以及  vh 如果兼容失效了，那么我们直接使用原生js 获取真实 dom 节点直接设置高度 */
+  height: calc(100vh - 90px - 55px);
+  overflow: auto;
 }
 </style>
 
