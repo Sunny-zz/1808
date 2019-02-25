@@ -5,7 +5,7 @@
       <h1 class="title">nuxt-hello</h1>
       <hr>
       <span>counter: {{$store.state.counter}}</span>
-      <button @click="add">counter++</button>
+      <button @click="getCounter">getCounter</button>
       <br>
       <hr>
       <nuxt-link to="/user">去 user 页</nuxt-link>
@@ -28,7 +28,7 @@ export default {
     Logo
   },
   methods: {
-    add() {
+    getCounter() {
       this.$store.dispatch("getCounter");
     }
   }
