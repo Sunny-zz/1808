@@ -1,7 +1,13 @@
 <template>
-  <div>
+  <div class="home-wrap">
     <h1 class="home">home</h1>
-    <mt-loadmore :bottom-method="loadBottom" ref="loadmore" :bottom-all-loaded="allLoaded">
+    <mt-loadmore
+      :bottom-method="loadBottom"
+      ref="loadmore"
+      bottomPullText
+      bottomDropText="加载更多..."
+      :bottom-all-loaded="allLoaded"
+    >
       <ul class="list">
         <li v-for="num in arr" :key="num">{{num}}</li>
       </ul>
@@ -12,17 +18,27 @@
 export default {
   name: "home",
   data: () => ({
-    arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    arr: [1, 2, 3, 4, 5, 6, 7, 8],
     allLoaded: false
   }),
   methods: {
     loadBottom() {
       console.log(this.$refs.loadmore);
+      // 更新 arr 更新完毕之后执行 loadmore 的 onBottomLoaded() 方法
+      setTimeout(() => {
+        this.arr.push(9, 10, 11, 12, 13);
+        // 如果数据全部更新完毕了
+        // this.allLoaded = true;
+        this.$refs.loadmore.onBottomLoaded();
+      }, 1000);
     }
   }
 };
 </script>
 <style>
+.home-wrap {
+  flex-grow: 1;
+}
 ul.list {
   list-style: none;
   padding: 0;
