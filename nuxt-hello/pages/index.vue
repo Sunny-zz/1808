@@ -11,9 +11,11 @@
       <nuxt-link to="/user">去 user 页</nuxt-link>
       <br>
       <hr>
-      <nuxt-link to="/post/1">去 第一篇文章</nuxt-link>
-      <br>
-      <nuxt-link to="/post/2">去 第二篇文章</nuxt-link>
+      <ul v-if="posts.length">
+        <li v-for="post in posts" :key="post.id">
+          <nuxt-link :to="`/post/${post.id}`">{{post.title}}</nuxt-link>
+        </li>
+      </ul>
       <hr>
     </div>
   </section>
@@ -30,6 +32,16 @@ export default {
   methods: {
     getCounter() {
       this.$store.dispatch("getCounter");
+    }
+  },
+  created() {
+    // 发 action
+    // 要触发模块内的 action 或 mutation ，函数名前要加上模块名
+    this.$store.dispatch("posts/getPosts");
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts.posts;
     }
   }
 };
