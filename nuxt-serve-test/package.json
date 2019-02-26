@@ -1,0 +1,12 @@
+{
+  "name": "nuxt-serve-test",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "nuxt": "latest"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  }
+}

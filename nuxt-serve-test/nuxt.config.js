@@ -67,5 +67,5 @@ module.exports = {
 
   // 服务器渲染部署
   // 在项目下执行 npm run build ,然后将 .nuxt  static  nuxt.config.js  package.json 四个文件放到服务器下
-  // 在任何地方，新建一个文件夹(项目名),给该文件夹起一个服务，把 package.json 文件做一下修改。参考官方文档的服务器端渲染部署。
+  // 在任何地方，新建一个文件夹(项目名)
 }

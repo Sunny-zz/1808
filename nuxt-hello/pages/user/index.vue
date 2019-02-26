@@ -16,6 +16,7 @@ export default {
       num1: 2
     };
   },
+  // $axios  存在于组件的 this 下也存在于 context 内
   async asyncData({ $axios }) {
     const res = await $axios.get("http://localhost:3008/data");
     // asyncData 函数 需要返回一个对象，该对象会与该页面的 data 合并
