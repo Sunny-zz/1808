@@ -11,7 +11,6 @@ export const actions = {
   async getPosts({ commit }) {
     const res = await this.$axios.get('http://localhost:3008/posts')
     // console.log('action', res)
-
     commit('getPosts', res.data)
   }
 }

@@ -34,10 +34,17 @@ export default {
       this.$store.dispatch("getCounter");
     }
   },
-  created() {
-    // 发 action
-    // 要触发模块内的 action 或 mutation ，函数名前要加上模块名
-    this.$store.dispatch("posts/getPosts");
+  // created() {
+  //   // 发 action
+  //   // 要触发模块内的 action 或 mutation ，函数名前要加上模块名
+  //   this.$store.dispatch("posts/getPosts");
+  // },
+  async fetch({ store }) {
+    // fetch 函数 替代 created,只是在页面组件中(pages文件夹下的组件)
+    // fetch 函数的第一个参数 是 context
+    // context 对象下都有哪些属性
+    // https://zh.nuxtjs.org/api/#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AF%B9%E8%B1%A1
+    await store.dispatch("posts/getPosts");
   },
   computed: {
     posts() {
