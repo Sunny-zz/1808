@@ -1,6 +1,7 @@
 {
   "data": {
-    "counter": 10
+    "counter": 10,
+    "num": 1000
   },
   "posts": [{ "id": "1", "title": "react" }, { "id": "2", "title": "vue" }]
 }
