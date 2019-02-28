@@ -1,0 +1,6 @@
+/* pages/user/user.wxss */
+@import '../../includes/public.wxss';
+.user-container{
+  width: 750rpx;
+  overflow-y: scroll;
+}

@@ -1,0 +1,82 @@
+<!-- index.wxml -->
+<!-- view 相当于 div -->
+<!-- view-scroll 带滚动条的div -->
+<!-- swiper  ---- banner -->
+<!-- button 相当于 button -->
+<!-- image 相当于 img  src='url' -->
+<!-- text 相当于  span -->
+<!-- icon 微信图标 -->
+<!-- progress 进度条 -->
+<!-- picker 选择器 选择日期 城市 自定义选项 -->
+<!-- navigator 超链接 a -->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  <button class='btn' size='mini'>按钮</button>
+  <icon type='success' size='60'></icon>
+  <text>成功</text>
+  <progress percent='50' active="true"></progress>
+  <scroll-view class='scroll-view' scroll-y="true">
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+    <view>123</view>
+  </scroll-view>
+  <!-- 如何 -->
+  <picker mode="date" value="{{date}}" bindchange="changeDate">
+    <view>日期是:{{date}}</view>
+  </picker>
+  <view>
+    <picker range="{{sexArr}}" value="sexIndex" bindchange="selectSex">
+      <view>性别:{{sexArr[sexIndex]}}</view>
+    </picker>
+  </view>
+  <view>
+    <text>{{a}}</text>
+  </view>
+  <view>
+    <!-- 再页面中使用 data 1.标签之间  ｛{data数据}｝ 2.标签的属性内 "{{data数据}}" -->
+    <!-- <button size='mini' wx:if="{{b}}" >我是 button 按钮</button> -->
+    <button bindtap='change'>Change</button>
+    <button size='mini' class="{{ b ? 'active btn1' : 'btn1' }}">我是 button 按钮</button>
+  </view>
+  <view>
+    <!-- 列表渲染的时候 直接 wx:for="{{数据}}" 里面直接使用 item 变量代替数组内的每一项 -->
+    <view wx:for="{{arr}}" wx:key="index">{{item}}</view>
+  </view>
+  <button size="mini">改变全局的数据</button>
+  <view>{{c}}</view>
+  <navigator url="../user/user">去 user</navigator>
+  <radio-group>
+    <label>
+      <radio value="男" />
+      男
+    </label>
+    <label>
+      <radio value="女" />
+      女
+    </label>
+  </radio-group>
+  <checkbox-group>
+    <checkbox />
+    <checkbox />
+  </checkbox-group>
+  <slider>音量</slider>
+  <switch />
+</view>

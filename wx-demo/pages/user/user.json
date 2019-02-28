@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "test":"../../components/test/test"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#00b3d4",
+  "navigationBarBackgroundColor": "#000000",
+  "onReachBottomDistance": 20
+
+}

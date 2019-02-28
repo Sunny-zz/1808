@@ -1,0 +1,35 @@
+<view class='user-container'>
+  <!-- pages/user/user.wxml -->
+<view class='header'>user 页</view>
+<button bindgetuserinfo="fn" open-type="getUserInfo" bind:tap="fn">按钮</button>
+<!-- <open-data type="userAvatarUrl"></open-data> -->
+<button bindtap='fn'>扫描二维码</button>
+<view>
+  <navigator
+    target="miniProgram"
+    open-type="navigate"
+    app-id="wxc802eecbb8591305"
+  >
+    跳转到其他的小程序
+  </navigator>
+  <button bindtap='fn'>跳转</button>
+</view>
+<view>
+  <video
+    id="myVideo"
+src="https://jdvideo.300hu.com/vodtransgzp1251412368/9031868223047784845/f0.f30.mp4?dockingId=5a654ab9-e50e-4806-98c9-89d6bbfac156&storageSource=3"
+    enable-danmu
+    danmu-btn
+    controls
+  ></video>
+  <view class="btn-area">
+    <input bindblur="bindInputBlur" />
+    <button bindtap="bindSendDanmu">发送弹幕</button>
+  </view>
+</view>
+
+<button id='btn' bindtap='fn'>获取我自己的Dom</button>
+</view>
+<!-- "注释":在 user.json 中"test 名相当于在页面中使用组件的标签名（随便定义），如果是多个单词组合 a-b-c 非 aB  地址 就是某个要被使用的组件地址", -->
+<test text="login"></test>
+<test></test>
