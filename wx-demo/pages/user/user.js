@@ -1,11 +1,22 @@
 // pages/user/user.js
+let plugin = requirePlugin("map")
+let routeInfo = {
+  startLat: 39.90469,    //起点纬度 选填
+  startLng: 116.40717,    //起点经度 选填
+  startName: "我的位置",   // 起点名称 选填
+  endLat: 39.94055,    // 终点纬度必传
+  endLng: 116.43207,  //终点经度 必传
+  endName: "乐购",  //终点名称 必传
+  mode: "car"  //算路方式 选填
+};
 // 创建随机颜色函数函数
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    show: true
+    show: true,
+    routeInfo: routeInfo
   },
   fn(e) {
     // 小程序常用的界面交互
@@ -75,21 +86,49 @@ Page({
     // })
     // 获取真实的 wxml 节点
     // 创建一个选择器
-    const query = wx.createSelectorQuery()
+    // const query = wx.createSelectorQuery()
     // 通过创建的选择器,获取 wxml 节点的信息(宽高位置等等)
-    query.select('#btn').boundingClientRect()
-    query.selectViewport().scrollOffset()
-    query.exec(function (res) {
-      console.log(res)
-      res[0].top // #btn节点的上边界坐标
-      res[1].scrollTop // 显示区域的竖直滚动位置
+    // query.select('#btn').boundingClientRect()
+    // query.selectViewport().scrollOffset()
+    // query.exec(function (res) {
+    //   console.log(res)
+    //   res[0].top // #btn节点的上边界坐标
+    //   res[1].scrollTop // 显示区域的竖直滚动位置
+    // })
+    // wx.getLocation({
+    //   success: function(res) {
+    //     console.log(res)
+    //   },
+    // })
+    wx.getLocation({
+      success: function(res) {
+        console.log(res)
+      },
     })
-
+  },
+  onShareAppMessage(res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '自定义转发标题',
+      path: '/page/user'
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    // 小程序象其他的地址请求数据的时候，只有请求 localhost 不用去配置小程序的合法域名。需要到小程序后台设置合法域名。
+    // 适合发送异步请求获取数据更新 data
+    wx.request({
+      url: 'https://cnodejs.org/api/v1/topic/5433d5e4e737cbe96dcef312',
+      success(res){
+        console.log(res)
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -141,7 +180,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    console.log(111)
+    
   },
 
   /**

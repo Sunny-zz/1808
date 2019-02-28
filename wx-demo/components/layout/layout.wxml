@@ -1,0 +1,9 @@
+<view class='layout'>
+  <text>父组件传递的节点</text>
+  <view style='background-color:yellowgreen'>
+    <slot name="btn1"></slot>
+  </view>
+  <view style='background-color:skyblue'>
+    <slot name="btn2"></slot>
+  </view>
+</view>

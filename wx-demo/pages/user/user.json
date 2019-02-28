@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "test":"../../components/test/test"
+    "test":"../../components/test/test",
+    "layout":"../../components/layout/layout",
+    "weather": "plugin://weather/weather",
+    "map-demo": "plugin://map/mapRoute"
   },
   "enablePullDownRefresh": true,
   "backgroundColor": "#00b3d4",

@@ -12,5 +12,25 @@
   "navigateToMiniProgramAppIdList": [
     "wx94e20775dc596ac4",
     "wxc802eecbb8591305"
-  ]
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "根据用户当前位置获取实时天气信息"
+    }
+  },
+  "usingComponents": {
+    "weather": "plugin://weather/weather"
+  },
+  "plugins": {
+    "weather": {
+      "version": "1.1.0",
+      "provider": "wx6578a11b90205be3"
+    },
+    "map":{
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  }
+
+
 }
