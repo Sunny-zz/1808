@@ -1,0 +1,8 @@
+<cover-view class='tab-bar' >
+<!-- data-index属性是自定义属性(类似于给事件传参)  属性名  data-xxx 当时这个名字的时候 可以使用事件函数的参数 e.currentTarget.dataset.xxx 获取 -->
+  <cover-view bindtap='switchTab' class='tab-item' wx:for="{{list}}" wx:key="{{item.text}}" data-index="{{index}}" data-url="{{item.pagePath}}" >
+  
+    <cover-image class='tab-img' src="{{ selectedIndex == index ? item.selectedIconPath : item.iconPath }}"></cover-image>
+    <cover-view class='tab-text' >{{item.text}}</cover-view>
+  </cover-view>
+</cover-view>

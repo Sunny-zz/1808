@@ -1,0 +1,6 @@
+<!--pages/weather/weather.wxml-->
+<input bindinput='bindKeyInput'  value='{{city}}'></input>
+<button bindtap='search' size='mini' >查询</button>
+<view class="weather"> 
+  <text>{{weatherData}}</text> 
+</view>

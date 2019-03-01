@@ -1,0 +1,23 @@
+/* custom-tab-bar/index.wxss */
+.tab-bar{
+  position: fixed;
+  width: 750rpx;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ccc; 
+}
+.tab-bar .tab-item{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab-bar .tab-item .tab-img{
+  width: 26px;
+}
+.tab-bar .tab-item .tab-text{
+  /* 要引用自定义字体的话需要 base64 格式 */
+}
