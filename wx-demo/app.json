@@ -1,11 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/post/post",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "hello",
     "navigationBarTextStyle": "white"
   },
@@ -26,11 +28,9 @@
       "version": "1.1.0",
       "provider": "wx6578a11b90205be3"
     },
-    "map":{
+    "map": {
       "version": "1.0.6",
       "provider": "wx5bc2ac602a747594"
     }
   }
-
-
 }

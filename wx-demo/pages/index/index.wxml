@@ -79,4 +79,5 @@
   </checkbox-group>
   <slider>音量</slider>
   <switch />
+  <button wx:if="{{!a === 10}}">加载更多</button>
 </view>

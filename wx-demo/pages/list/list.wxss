@@ -1,0 +1,5 @@
+/* pages/list/list.wxss */
+.post{
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}

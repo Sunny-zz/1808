@@ -1,0 +1,19 @@
+<!--pages/list/list.wxml-->
+<!-- react fragments  <></> -->
+<!-- wx:for-item="post" 给 for 的 item 重新命名 -->
+<block >
+  <view wx:if="{{posts.length}}" >
+    <view class='post' wx:for="{{posts}}" wx:for-item="post" wx:key="{{postid}}" >
+      <navigator url='/pages/post/post?id={{post.id}}' >{{post.title}}</navigator>
+    </view>
+  </view>
+  <!-- 刷新的时候让两个按钮都消失，页面出来了使用 hidden 控制两个按钮消失出现，当数据加载完毕让 加载更多按钮消失，也就是不会出现三个点了 -->
+  <block wx:if="{{posts.length }}">
+    <button hidden='{{!moreBtn}}' bindtap='getMorePost' wx:if="{{!(posts.length===100)}}" >
+    加载更多
+  </button>
+  <button hidden='{{moreBtn}}' wx:if="{{!(posts.length===100)}}" >图片三个点...</button>
+  </block>
+  
+</block>
+
